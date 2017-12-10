@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.calculator{
+				width: 215px;
+				height: 235px;
+				margin: 100px auto;
+				padding: 10px;
+				box-sizing: border-box;
+				border: 1px solid cadetblue;
+				background-color: gainsboro;
+			}
+			.calculator .text{
+				width: 187px;
+				border: 1px solid gray;
+			}
+			.calculator .text>input[type=text]{
+				width: 187px;
+				height: 30px;
+				text-align: right;
+				border: none;
+				outline: none;
+				font-size: 18px;
+				padding-right: 5px;
+				box-sizing: border-box;
+			}
+			.calculator .text>input[type=text]:nth-of-type(1){
+				height: 20px;
+				font-size: 12px;
+			}
+			.calculator .button>input[type=button]{
+				width: 34px;
+				height: 26px;
+				text-align: center;
+				float: left;
+				margin-right: 5px;
+				margin-top: 5px;
+			}
+			.calculator .button>input[type=button]:nth-of-type(5n){
+				margin-right: 0;
+			}
+			#zero{
+				width: 73px;
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<div class="calculator">
+			<div class="text">
+				<input type="text" value="" />
+				<input type="text" value="0" />
+			</div>
+			
+			<div class="button">
+				<input class="button_nth" type="button" value="<--"/>
+				<input class="button_nth" type="button" value="CE"/>
+				<input class="button_nth" type="button" value="C"/>
+				<input class="button_nth" type="button" value=""/>
+				<input class="button_nth" type="button" value=""/>
+				<input class="button_nth" type="button" value="7"/>
+				<input class="button_nth" type="button" value="8"/>
+				<input class="button_nth" type="button" value="9"/>
+				<input class="button_nth" type="button" value="/"/>
+				<input class="button_nth" type="button" value="%"/>
+				<input class="button_nth" type="button" value="4"/>
+				<input class="button_nth" type="button" value="5"/>
+				<input class="button_nth" type="button" value="6"/>
+				<input class="button_nth" type="button" value="*"/>
+				<input class="button_nth" type="button" value="1/x"/>
+				<input class="button_nth" type="button" value="1"/>
+				<input class="button_nth" type="button" value="2"/>
+				<input class="button_nth" type="button" value="3"/>
+				<input class="button_nth" type="button" value="-"/>
+				<input class="button_nth" type="button" value="."/>
+				<input class="button_nth" id="zero" type="button" value="0"/>
+				<input class="button_nth" type="button" value="+"/>
+				<input class="button_nth" type="button" value="="/>
+			</div>
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		
+		var sum;
+		var count_type;
+		var text_c = document.querySelector(".calculator .text>input[type=text]:nth-of-type(1)");
+		var text_cli = document.querySelector(".calculator .text>input[type=text]:nth-of-type(2)");
+		var text_value;
+		var button_all = document.querySelectorAll(".button_nth");
+		var button_add = button_all[21];
+		var button_reduce = button_all[18];
+		var button_multiply = button_all[13];
+		var button_divide = button_all[8];
+		var button_equal = button_all[22];
+		var button_ce = button_all[1];
+		var button_delete = button_all[0];
+		
+		for(var i = 0; i < button_all.length; i++){
+			button_all[i].onclick = function(e){
+				if(count_type!=null&&text_value!=0){
+					text_cli.value = e.target.value;
+				} else if(count_type==null&&text_value==0) {
+				//e.target  你点击的对象
+					text_value = e.target.value;
+					text_cli.value = e.target.value;
+				} else if(text_cli.value=="0") {
+				//e.target  你点击的对象
+					text_cli.value = e.target.value;
+				} else {
+					text_cli.value = text_cli.value + e.target.value;
+				}
+				if(count_type==null){
+					sum = 0;
+				}
+			}
+		}
+		button_add.onclick = function(){
+			text_value = text_cli.value;
+			text_c.value = text_c.value + " " + text_cli.value + " " + this.value;
+			if(count_type!=null){
+				sum = count(sum,count_type,text_value);
+				text_cli.value = sum;
+			} else {
+				sum = text_cli.value;
+			}
+			count_type = this.value;
+		};
+		button_reduce.onclick = function(e){
+			text_value = text_cli.value;
+			text_c.value = text_c.value + " " + text_cli.value + " " + this.value;
+			if(count_type!=null){
+				sum = count(sum,count_type,text_value);
+				text_cli.value = sum;
+			} else {
+				sum = text_cli.value;
+			}
+			count_type = e.target.value;
+		};
+		button_multiply.onclick = function(){
+			text_value = text_cli.value;
+			text_c.value = text_c.value + " " + text_cli.value + " " + this.value;
+			if(count_type!=null){
+				sum = count(sum,count_type,text_value);
+				text_cli.value = sum;
+			} else {
+				sum = text_cli.value;
+			}
+			count_type = this.value;
+		};
+		button_divide.onclick = function(){
+			text_value = text_cli.value;
+			text_c.value = text_c.value + " " + text_cli.value + " " + this.value;
+			if(count_type!=null){
+				sum = count(sum,count_type,text_value);
+				text_cli.value = sum;
+			} else {
+				sum = text_cli.value;
+			}
+			count_type = this.value;
+		};
+		button_equal.onclick = function(){
+			if(count_type != null&&text_c.value != null) {
+				sum = count(sum,count_type,text_cli.value);
+				text_cli.value = sum;
+			}
+			count_type = null;
+			text_c.value = "";
+			text_value = 0;
+//			sum = 0;
+		};
+		button_ce.onclick = function(){
+			sum = 0;
+			count_type = null;
+			text_cli.value = "0";
+			text_c.value = "";
+			text_value = 0;
+		};
+		button_delete.onclick = function(){
+			if(text_cli.value.length>1){
+				text_cli.value = text_cli.value.substring(0,text_cli.value.length-1);
+			} else {
+				text_cli.value = "0";
+			}
+			
+		}
+		
+		function count(n,type,m){
+			switch(type){
+				case '+': return parseInt(n)+parseInt(m);
+				break;
+				case '-': return parseInt(n)-parseInt(m);
+				break;
+				case '*': return parseInt(n)*parseInt(m);
+				break;
+				case '/': return parseInt(n)/parseInt(m);
+				break;
+			}
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			*{
+				margin: 0;
+				padding:0;
+			}
+			.div01{
+				width: 400px;
+				height: 300px;
+				overflow: hidden;
+				margin: 100px auto;
+			}
+			#lunbo{
+				width: 3200px;
+				height: 300px;
+				transform: translateX(0px);
+			}
+			#lunbo>li{
+							
+				float: left;
+				list-style: none;
+				/*display: inline-block;*/
+			}
+			#lunbo>li>img{
+				width: 400px;
+				height: 300px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div01">
+		<ul id="lunbo">
+			<li><img src="img/Chrysanthemum.jpg"/></li>
+			<li><img src="img/Desert.jpg"/></li>
+			<li><img src="img/Hydrangeas.jpg"/></li>
+			<li><img src="img/Jellyfish.jpg"/></li>
+			<li><img src="img/Koala.jpg"/></li>
+			<li><img src="img/Lighthouse.jpg"/></li>
+			<li><img src="img/Penguins.jpg"/></li>
+			<li><img src="img/Tulips.jpg"/></li>
+		</ul>
+		</div>
+		<input type="button"  value="启动" id="off" style="margin: 0 auto;"/>
+	</body>
+	<script type="text/javascript">
+		var ul_lunbo = document.querySelector("#lunbo");
+		var i = 0;
+		var btn = document.querySelector("#off");
+		var isRun = false;
+		var timer = null;
+		btn.onclick = function(){
+			if(!isRun){
+				timer = setInterval(translate,1);
+				console.log(timer);
+				isRun = true;
+			}else{
+				clearInterval(timer)
+				isRun = false;
+			}
+			
+		};
+		
+		function translate(){
+			if(i == 3200){
+				clearInterval(timer);
+				ul_lunbo.style.transform = "translateX(0px)";
+			}else{
+				ul_lunbo.style.transform = "translateX(-"+(i++) + "px)" ;
+			}
+		}
+	</script>
+</html>

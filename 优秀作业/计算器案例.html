@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.nav{
+				width: 500px;
+				height: 400px;
+				background-color: cadetblue;
+			}
+			.nav>input[type = text]{
+				width: 480px;
+				height: 90px;
+				outline: none;
+				border: 1px solid gray;
+				position: relative;
+				left: 50%;
+				top: 5px;
+				font-size: 50px;
+				transform: translateX(-50%);
+				
+				
+			}
+			.nav>ul{
+				width: 500px;
+				height: 60px;
+				background-color: sandybrown;
+				/*margin: 1px auto;*/
+				position: relative;
+				top: 9px;
+				left: 0;
+				 cursor: pointer;
+			}
+			.nav>ul>li{
+				display: inline-block;
+				width: 120px;
+				height:56px ;
+				float: left;
+				background-color: darkseagreen;
+				position: relative;
+				border: 1px solid gainsboro;
+				margin-right: 3px;
+				top: 2px;
+				left: 2px;
+				text-align: center;
+				line-height: 56px;
+				font-family: "微软雅黑";
+
+			}
+			
+		.nav .ul-dy{
+			position: absolute;
+			width: 125px;
+			height: 116px;
+			top: 280px;
+			left: 373px;
+			z-index: 1;
+		}
+		.nav .ul-dy>li{
+			height: 116px;
+			line-height: 116px;
+		}
+		.nav>ul>li:hover {
+			background-color:cadetblue;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="nav" >
+			<input type="text" value=""  id="display_1"/>
+			<ul>
+				<li id="btn_emp">C</li>
+				<li id="btndelete"><--</li>
+				<li id="btn_div">/</li>
+				<li id="btn_mul">*</li>
+			</ul>
+			<ul>
+				<li id="btn07">7</li>
+				<li id="btn08">8</li>
+				<li id="btn09">9</li>
+				<li id="btn_sub">-</li>
+			</ul>
+			<ul>
+				<li id="btn04">4</li>
+				<li id="btn05">5</li>
+				<li id="btn06">6</li>
+				<li id="btn_add">+</li>
+			</ul>
+			<ul>
+				<li id="btn01">1</li>
+				<li id="btn02">2</li>
+				<li id="btn03">3</li>
+			</ul>
+			<ul class="ul-dy">
+				<li id="btn_equal">=</li>
+			</ul>
+			<ul>
+				<li id="btn_per">%</li>
+				<li id="btn00">0</li>
+				<li id="btn_dec">.</li>
+			</ul>
+			
+		</div>
+		
+	</body>
+	
+	<script type="text/javascript">
+		var isPressEqualsKey = false;
+		var display_1 = document.querySelector("#display_1");
+		var btn01 = document.querySelector("#btn01");
+		var btn02 = document.querySelector("#btn02");
+		var btn03 = document.querySelector("#btn03");
+		var btn04 = document.querySelector("#btn04");
+		var btn05 = document.querySelector("#btn05");
+		var btn06 = document.querySelector("#btn06");
+		var btn07 = document.querySelector("#btn07");
+		var btn08 = document.querySelector("#btn08");
+		var btn09 = document.querySelector("#btn09");
+		var btn00 = document.querySelector("#btn00");
+		
+		// 删除  清空  百分号 小数点
+		var btndelete =document.querySelector("#btndelete");
+		var btn_emp =document.querySelector("#btn_emp");
+		var btn_per =document.querySelector("#btn_per");
+		var btn_dec =document.querySelector("#btn_dec");
+		
+		//加减乘除
+		var btn_add =document.querySelector("#btn_add");
+		var btn_sub =document.querySelector("#btn_sub");
+		var btn_mul =document.querySelector("#btn_mul");
+		var btn_div =document.querySelector("#btn_div");
+		
+		
+		//等号
+		var btn_equal = document.querySelector("#btn_equal");
+		
+		var  add = "+";
+		var  sub = "-";
+		var  mul = "*";
+		var  div = "/";
+		btn01.onclick = function(){
+			display_1.value = display_1.value + 1;
+		};
+		btn02.onclick = function(){
+			display_1.value = display_1.value + 2;
+		};
+		btn03.onclick = function(){
+			display_1.value = display_1.value + 3;
+		};
+		btn04.onclick = function(){
+			display_1.value = display_1.value + 4;
+		};
+		btn05.onclick = function(){
+			display_1.value = display_1.value + 5;
+		};
+		btn06.onclick = function(){
+			display_1.value = display_1.value + 6;
+		};
+		btn07.onclick = function(){
+			display_1.value = display_1.value + 7;
+		};
+		btn08.onclick = function(){
+			display_1.value = display_1.value + 8;
+		};
+		btn09.onclick = function(){
+			display_1.value = display_1.value + 9;
+		};
+		btn00.onclick = function(){
+			display_1.value = display_1.value + 0;
+		};
+		
+		// 删除  
+		btndelete.onclick = function(){
+			display_1.value = display_1.value.substring
+			(0,display_1.value.length-1);
+		};
+		//清空
+		btn_emp.onclick = function(){
+			display_1.value = "";
+		};
+		//百分号
+		btn_per.onclick = function(){
+			display_1.value = display_1.value+ "%";
+		};
+		//小数点
+		btn_dec.onclick = function(){
+			//数值输入已经存在小数点,则不允许再输入小数点
+			if((display_1.value.indexOf(".") <0 && display_1.value != "")
+			||(display_1.value.indexOf("+") >0 && display_1.value.split(".").length==2)
+			||(display_1.value.indexOf("-") >0 && display_1.value.split(".").length==2)
+			||(display_1.value.indexOf("*") >0 && display_1.value.split(".").length==2)
+			||(display_1.value.indexOf("/") >0 && display_1.value.split(".").length==2)){
+			  display_1.value = display_1.value+ ".";
+			}else{
+				alert("123456");
+			}
+		};
+		
+		
+		//加
+		btn_add.onclick = function(){
+			display_1.value = display_1.value+add;
+		};
+		//减
+		btn_sub.onclick = function(){
+			display_1.value = display_1.value+sub;
+		};
+		//乘
+		btn_mul.onclick = function(){
+			display_1.value = display_1.value+mul;
+		};
+		//除
+		btn_div.onclick = function(){
+			display_1.value = display_1.value+div;
+		};
+		//等于
+		btn_equal.onclick = function(){
+		//用 + 分割，结果是数组
+		if(display_1.value.indexOf("+")>0){
+			var xy = display_1.value.split("+");
+			var x=xy[0]*1;
+			var y=xy[1]*1;
+			display_1.value = x+y;
+		}else if(display_1.value.indexOf("-")>0){
+			var xy = display_1.value.split("-");
+			var x=xy[0]*1;
+			var y=xy[1]*1;
+			display_1.value = x-y;
+			
+		}else if(display_1.value.indexOf("*")>0){
+			var xy = display_1.value.split("*");
+			var x=xy[0]*1;
+			var y=xy[1]*1;
+			display_1.value = x*y;
+		}else if(display_1.value.indexOf("/")>0){
+			var xy = display_1.value.split("/");
+			var x=xy[0]*1;
+			var y=xy[1]*1;
+			display_1.value = x/y;
+		}else{
+			alert("请输入运算符号！");
+		}
+		
+		};
+	</script>
+</html>
