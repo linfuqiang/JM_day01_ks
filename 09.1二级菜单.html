@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*去掉所有默认的内外边界*/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			/*去掉a标签的下划线*/
+			a{
+				text-decoration: none;
+			}
+			/*去掉列表前面的点*/
+			li{
+				list-style: none;
+			}
+			/*隐藏二级菜单*/
+			.nav1 .nav2{
+				display: none;
+			}
+			/*>代表选中直接子类*/
+			.nav1>li{
+				/*左浮动，可以把标签排成一行*/
+				float: left;
+				margin-right:10px ;
+				/*前面三个参数代表10进制的颜色值，最后一个代表透明度0~1*/
+				border-top:2px solid rgba(0,0,0,0) ;
+				/*子菜单里面的文字偏多，会影响整个宽带，让文本偏离*/
+				width: 70px;
+				/*水平居中*/
+				text-align: center;
+			}
+			/*一级菜单头部的指示剂*/
+			.nav1>li:hover{
+				border-top:2px solid blue ;
+			}
+			
+			/*二级菜单显示*/
+			.nav1>li:hover .nav2{
+				display: block;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<ul class="nav1">
+			<li><a href="#">首页</a></li>
+			<li>
+				<a href="#">发现</a>
+				
+				<ul class="nav2">
+					<li>作品</li>
+					<li>文章</li>
+					<li>设计大赛</li>
+					<li>线下活动</li>
+				</ul>
+			
+			</li>
+			<li><a href="#">学习</a>
+				<ul class="nav2">
+					<li>作品</li>
+					<li>文章</li>
+					<li>设计大赛</li>
+					<li>线下活动</li>
+					<li>作品</li>
+					<li>文章</li>
+					<li>设计大赛</li>
+					<li>线下活动</li>
+				</ul>
+				
+			</li>
+			<li><a href="#">培训</a></li>
+			<li><a href="#">训练营</a></li>
+			<li><a href="#">招聘</a></li>
+		</ul>
+	</body>
+
+</html>

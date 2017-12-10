@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		      /*自己要到处跑，绝对定位。自己的儿子要到处跑，那么自己设置相对定位。儿子绝对定位*/
+		     
+		      /*特殊：如果自己只是在左右上下稍微调整一下位置。那就可以使用相对定位，然后微调*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.content {
+				margin: 300px auto;
+				width: 645px;
+				/*border: 1px solid blue;*/
+				text-align: center;
+			}
+			
+			.content img {
+				width: 270px;
+				height: 125px;
+			}
+			
+			.content .input-container {
+				width: 645px;
+				height: 35px;
+				/*border: 1px solid blue;*/
+				position: relative;
+			}
+			
+			.content .input-container input[type=text] {
+				width: 547px;
+				/*因为有边框-2px*/
+				height: 33px;
+				outline: none;
+				border: 1px solid deepskyblue;
+				border-right: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-left:10px ;
+			}
+			
+			.content .input-container input[type=button] {
+				width: 97px;
+				height: 35px;
+				background-color: deepskyblue;
+				border: none;
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+			/*不设置宽高，背景图不显示。但是a标签没有宽高。所以要设置成display: block;*/
+			.content .input-container a{
+				display: block;
+				width: 18px;
+				height: 17px;
+				background: url(img/camera_new_5606e8f.png);
+				position: absolute;
+				top: 50%;
+				right: 113px;
+				transform: translateY(-50%);
+			}
+			
+			.content .input-container a:hover{
+				/*一个参数是x轴。如果，x轴没有移动就写0px.不能省略*/
+				background-position:  0px -20px ;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+
+		<div class="content">
+			<img src="img/bd_logo1.png" />
+			<div class="input-container">
+				<input type="text" /><input type="button" value="百度一下" />
+				<a href="#"></a>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

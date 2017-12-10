@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+            body,html{
+            	height: 200%;
+            }
+            .right_bottom{
+            	width: 200px;
+            	height: 200px;
+            	background-color: red;
+            	/*类似绝对定位。只是会定在整个界面不会被滚动条影响*/
+            	position: fixed;
+            	right: 0;
+            	bottom: 0;
+            } 
+		</style>
+	</head>
+	<body>
+		  <p>我在上面</p>
+		  <div class="right_bottom">
+		  </div>
+	</body>
+</html>

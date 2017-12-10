@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.div01 {
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				/*相对定位：相对的是自己原来的位置
+				   绝对定位：相对是上一层带有position属性的父元素。
+				 * */
+				position: relative;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			/*相对定位使用：一般不会用于定位具体地点。为什么？
+			               因为，一旦定位具体地点了。那么他原来位置就会消失。
+			               然而，再次定位就不清楚他原来位置在哪里。
+			              主要用于，给子元素做具体定位使用。自己（父元素）使用 position: relative;
+			              使用之后，自己的位置不会出现变化。
+			             （有的时候，绝对定位设置在父元素会影响整个页面结构。）           
+			 * 
+			 * */
+			.div02 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: relative;
+				/*相对定位：相对的是自己原来的位置*/
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="div01">
+		</div>
+		<div class="div02">
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.boxs {
+				width: 800px;
+				margin: 100px auto;
+			}
+			
+			.boxs>div {
+				float: left;
+			}
+			
+			.boxs .box01 {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			
+			.boxs .box02 {
+				width: 400px;
+				height: 200px;
+				background-color: green;
+			}
+			
+			.boxs .box03 {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+			}
+			/*12
+			  3*/
+			@media only screen and (min-width: 600px) and (max-width: 900px) {
+				.boxs {
+					width: 600px;
+				}
+				.boxs .box03 {
+					width: 600px;
+				}
+			}
+			/*
+			 * 
+			 1
+			 2
+			 3
+			 * 
+			 * */
+			@media only screen and  (max-width: 600px) {
+				
+				.boxs {
+					width: 300px;
+				}
+				
+				.boxs .box01 {
+					width: 300px;
+				}
+				
+				.boxs .box02 {
+					width: 300px;
+				}
+				
+				.boxs .box03 {
+					width: 300px;
+				}
+				
+				
+			}
+			
+			
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="boxs">
+
+			<div class="box01">
+			</div>
+
+			<div class="box02">
+			</div>
+
+			<div class="box03">
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

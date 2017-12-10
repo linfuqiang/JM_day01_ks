@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.content{
+				width: 500px;
+				/*水平居中*/
+				margin: 100px auto;
+			}
+			/*.content a{
+				width: 50px;
+				height: 50px;
+				padding: 10px;
+				border: 1px solid gainsboro;
+				 去掉a下划线 
+				text-decoration: none;
+			}*/
+			.content a{  
+				width: 30px;
+				height: 30px;
+				border: 1px solid gainsboro;
+				/*去掉下划线*/
+				text-decoration: none;
+				/*排成一行，同时变成块元素。不然无法设置宽高*/
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+				/*所有的a标签距离右边5px*/
+				margin-right: 5px;
+			}
+			/*为什么从外面写到里面1，结构清晰，2，防止权重过低*/
+			 .content .previous,.content .next{  
+				width: 50px;
+			}
+			/*监听.content 下所有a标签的鼠标滑动*/
+			.content a:hover {
+				background-color: blue;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<a class="previous" href="#">上一页</a>
+			<a class="first" href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">7</a>
+			<a href="#">8</a>
+			<a href="#">9</a>
+			<a class="next" href="#">下一页</a>
+		</div>
+	</body>
+</html>

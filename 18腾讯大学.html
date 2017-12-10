@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>腾讯大学</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			/**/
+			body,
+			html {
+				height: 100%;
+				width: 100%;
+			}
+			/*头*/
+			
+			header {
+				height: 686px;
+				width: 100%;
+				/*background-color: burlywood;*/
+			}
+			
+			header nav {
+				width: 100%;
+				height: 78px;
+				/*1，水平偏移，2，垂直偏移，3，虚化度 4，颜色*/
+				box-shadow: 0px 1px 10px black;
+				/*让nav处于上层*/
+				position: relative;
+				z-index: 1;
+			}
+			
+			header nav>div {
+				width: 1175px;
+				margin: 0 auto;
+				height: 78px;
+			}
+			
+			header nav>div>.search {
+				width: 30px;
+				height: 30px;
+				margin-bottom: 20px;
+				border-right: 1px solid gainsboro;
+				padding-right: 17px;
+			}
+			
+			header nav>div>.login {
+				font-size: 12px;
+				text-align: center;
+				/*微调*/
+				position: relative;
+				bottom: 15px;
+				left: 22px;
+				display: inline-block;
+				text-decoration: none;
+			}
+			
+			header nav>div>a>img {
+				height: 30px;
+			}
+			
+			header nav>div>ul {
+				width: 736px;
+				/*background-color: blue;*/
+				display: inline-block;
+			}
+			
+			header nav>div>ul>li {
+				float: left;
+				list-style: none;
+				height: 78px;
+				/*没有宽度所以图片不显示，但是由于宽度不一致，所以这里不设置*/
+				/*width: 100px;*/
+				background: url(tx/nav.png);
+			}
+			
+			header nav>div>ul>li:hover {
+				background: url(tx/nav-on.png);
+			}
+			/*针对每个选项卡设置宽度*/
+			
+			header nav>div>ul>li:nth-child(1) {
+				width: 100px;
+				background: url(tx/nav-on.png);
+			}
+			
+			header nav>div>ul>li:nth-child(2) {
+				width: 124px;
+				background-position: -100px;
+			}
+			
+			header nav>div>ul>li:nth-child(3) {
+				width: 146px;
+				/*记得累加前面的宽度*/
+				background-position: -224px;
+			}
+			
+			header nav>div>ul>li:nth-child(4) {
+				width: 120px;
+				/*记得累加前面的宽度*/
+				background-position: -370px;
+			}
+			
+			header nav>div>ul>li:nth-child(5) {
+				width: 124px;
+				/*记得累加前面的宽度*/
+				background-position: -490px;
+			}
+			/*-------------------------------*/
+			
+			section {
+				width: 100%;
+				height: 2060px;
+				padding-top: 20px;
+				background-color: gainsboro;
+			}
+			
+			footer {
+				width: 100%;
+			}
+			/*轮播图*/
+			
+			header .loop_pic {
+				width: 1440px;
+				height: 360px;
+				margin: 0 auto;
+				/*一旦自己设置了范围，那么超过自己范围的就隐藏*/
+				overflow: hidden;
+				/*background-color: beige;*/
+				/*一定要有，不然右下方的点定位不准*/
+				position: relative;
+			}
+			
+			header .loop_pic .loop_dots>li {
+				float: left;
+				list-style: none;
+				background: url(tx/banner-counter.png);
+				width: 16px;
+				height: 16px;
+				/*设置间隙*/
+				margin-right: 10px;
+			}
+			
+			header .loop_pic .loop_dots {
+				/*定位四个点的位置*/
+				position: absolute;
+				right: 186px;
+				bottom: 20px;
+			}
+			/*如果每个点的宽度不一样，那么鼠标监听就要写在，移动图片的上面。
+			 但是，只会使用第一个点的图片。
+			 * */
+			
+			header .loop_pic .loop_dots>li:hover {
+				background: url(tx/banner-counter-on.png);
+			}
+			
+			header .loop_pic .loop_dots>li:nth-child(2) {
+				background-position: -26px;
+			}
+			
+			header .loop_pic .loop_dots>li:nth-child(3) {
+				background-position: -52px;
+			}
+			
+			header .loop_pic .loop_dots>li:nth-child(4) {
+				background-position: -78px;
+			}
+			/*直播*/
+			
+			header .live {
+				width: 1028px;
+				height: 250px;
+				margin: 0 auto;
+				background: url(tx/live-bg.png);
+				position: relative;
+			}
+			
+			header .live>img {
+				padding: 12px 0px;
+			}
+			
+			header .live .live_content .live_pic {
+				float: left;
+				width: 225px;
+				margin-left: 50px;
+			}
+			
+			header .live .live_content .live_text {
+				float: right;
+				width: 520px;
+				margin-right: 200px;
+			}
+			
+			header .live .live_text .time_icon {
+				/*span标签没有宽高*/
+				display: inline-block;
+				background: url(tx/icons.png);
+				width: 12px;
+				height: 12px;
+				background-position-y: -6px;
+				margin-right: 10px;
+			}
+			
+			header .live .live_text .time {
+				color: grey;
+				font-size: 13px;
+				display: inline-block;
+			}
+			/*当直接子元素都是同一类型标签使用nth-child*/
+			/*header .live .live_text>p:nth-child(1) {
+				margin-top: 10px;
+				margin-bottom: 30px;
+				background-color: blue;
+			} */
+			/*当子元素里面有其他标签使用nth-of-type*/
+			
+			header .live .live_text>p:nth-of-type(1) {
+				margin-top: 10px;
+				margin-bottom: 30px;
+			}
+			
+			header .live .live_left,
+			header .live .live_right {
+				width: 20px;
+				height: 30px;
+				display: block;
+				background: url(tx/sliders-btn.png);
+				position: absolute;
+			}
+			
+			header .live .live_left {
+				background-position: -5px -10px;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+			
+			header .live .live_right {
+				background-position: -5px -105px;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+			}
+			
+			header .live .live_bottom {
+				display: block;
+				background: url(tx/slider-close.png);
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				width: 40px;
+				height: 19px;
+				transform: translateX(-50%);
+			}
+			/*---------------------------------------*/
+			
+			section .container {
+				width: 1068px;
+				height: 100%;
+				margin: 0 auto;
+				position: relative;
+				/*border: 1px solid goldenrod;*/
+			}
+			/*二维码*/
+			
+			section .container .qr_code {
+				width: 120px;
+				height: 160px;
+				position: absolute;
+				/*宽度+pading+左边距*/
+				right: -139px;
+				top: 0;
+				background-color: white;
+				font-size: 13px;
+				text-align: center;
+				padding: 5px;
+			}
+			/*中间内容区域*/
+			
+			section .container .content {
+				float: left;
+				width: 780px;
+				height: 100%;
+				/*background-color: lavenderblush;*/
+			}
+			/*给四个子元素设置背景颜色*/
+			
+			section .container .content>div {
+				background-color: ghostwhite;
+				width: 780px;
+				margin-bottom: 20px;
+				padding: 20px;
+				/*怪异盒模型
+				 防止pading把区域变大。
+				 * */
+				box-sizing: border-box;
+			}
+			/*热门*/
+			
+			section .container .content .hot_class {
+				height: 355px;
+			}
+			
+			section .container .content .hot_class .hot_title,
+			.share_title,
+			.elaborate_title {
+				height: 24px;
+				line-height: 24px;
+				font-weight: 100;
+				margin-bottom: 20px;
+			}
+			
+			section .container .content .hot_class .hot_title>img,
+			.share_title>img,
+			.elaborate_title>img {
+				margin-right: 13px;
+				/*微调*/
+				position: relative;
+				top: 2px;
+			}
+			
+			section .container .content .hot_class .hot_title>a,
+			.share_title>a,
+			.elaborate_title >a {
+				/*定位也可以做到*/
+				float: right;
+				text-decoration: none;
+				color: gray;
+			}
+			
+			section .container .content .hot_class .hot_content>li {
+				/*横着排列*/
+				float: left;
+				width: 230px;
+				height: 275px;
+				overflow: hidden;
+				margin-right: 25px;
+			}
+			/*最后一个li没有外边距*/
+			
+			section .container .content .hot_class .hot_content>li:nth-child(3) {
+				margin-right: 0px;
+			}
+			/*控制图片大小*/
+			
+			section .container .content .hot_class .hot_content>li>img {
+				height: 160px;
+				border-bottom: 3px solid cyan;
+			}
+			
+			section .container .content .hot_class .hot_content>li:nth-child(2)>img {
+				border-bottom-color: orange;
+			}
+			
+			section .container .content .hot_class .hot_content>li:nth-child(3)>img {
+				border-bottom-color: greenyellow;
+			}
+			
+			section .container .content .hot_class .hot_content>li>a {
+				text-decoration: none;
+				color: black;
+				margin: 10px 0;
+				display: block;
+			}
+			
+			section .container .content .hot_class .hot_content>li>p {
+				color: gray;
+				/*单行省略*/
+				/*overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;*/
+				height: 50px;
+				width: 190px;
+				font-size: 12px;
+				/*多行省略*/
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				/*代表多少行~~*/
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+			}
+			/*干货分享*/
+			
+			section .container .content .good_share .good_content>li {
+				list-style: none;
+				width: 740px;
+				height: 130px;
+				background: url(tx/icon-at.png) no-repeat 650px -20px;
+				/*这个写在background下面。写在上面会被覆盖*/
+				background-color: gainsboro;
+				margin-bottom: 15px;
+				padding: 20px;
+				/*怪异盒模型*/
+				box-sizing: border-box;
+			}
+			
+			section .container .content .good_share .good_content>li:nth-child(2) {
+				background: url(tx/icon-video.png) no-repeat 650px -20px;
+				background-color: gainsboro;
+			}
+			
+			section .container .content .good_share .good_content>li:nth-child(3) {
+				background: url(tx/icon-laptop.png) no-repeat 650px -20px;
+				background-color: gainsboro;
+			}
+			
+			section .container .content .good_share .good_content .live_content .live_pic {
+				float: left;
+				width: 124px;
+				margin-right: 20px;
+			}
+			
+			section .container .content .good_share .good_content .live_content .live_text {
+				float: left;
+				width: 480px;
+				height: 85px;
+				font-size: 15px;
+			}
+			
+			section .container .content .good_share .good_content .live_content .live_text>h3,
+			.good_share .good_content .live_content .live_text>p {
+				font-size: 15px;
+				font-weight: 200;
+			}
+			
+			section .container .content .good_share .good_content .live_text .time_icon {
+				/*span标签没有宽高*/
+				display: inline-block;
+				background: url(tx/icons.png);
+				width: 12px;
+				height: 12px;
+				background-position-y: -6px;
+				margin-right: 10px;
+			}
+			
+			section .container .content .good_share .good_content .live_text .time {
+				color: grey;
+				font-size: 13px;
+				display: inline-block;
+			}
+			/*===========================================*/
+			
+			section .container .content .good_share {
+				height: 500px;
+			}
+			
+			section .container .content .special_class {
+				height: 355px;
+			}
+			/*精品课程*/
+			
+			section .container .content .elaborate_calss {
+				height: 790px;
+				margin-bottom: 0;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content {
+				width: 735px;
+				height: 735px;
+				/*border: 1px solid blue;*/
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li {
+				float: left;
+				width: 350px;
+				height: 350px;
+				list-style: none;
+				margin-bottom: 16px;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li>img {
+				width: 350px;
+			}
+			/*nth-child(2n+1) 所有基数子元素*/
+			
+			section .container .content .elaborate_calss .elaborate_content>li:nth-child(2n+1) {
+				margin-right: 32px;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li>h3>span {
+				display: inline-block;
+				width: 300px;
+				height: 24px;
+				background: url(tx/bout-title-bg.png);
+				padding-left: 30px;
+				padding-bottom: 8px;
+				/*文字太大，pading会没有效果*/
+				font-size: 16px;
+				box-sizing: border-box;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li>h3>a {
+				width: 34px;
+				height: 7px;
+				font-size: 6px;
+				display: inline-block;
+				text-decoration: none;
+				color: gainsboro;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li>h3 {
+				margin-bottom: 20px;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li:nth-child(2)>h3>span {
+				background-position: 0px -24px;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li:nth-child(3)>h3>span {
+				background-position: 0px -48px;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li:nth-child(4)>h3>span {
+				background-position: 0px -72px;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li>p {
+				font-size: 13px;
+				margin: 8px 0;
+			}
+			
+			section .container .content .elaborate_calss .elaborate_content>li>p:nth-of-type(2) {
+				color: gray;
+			}
+			/*最右*/
+			
+			section .container .right {
+				float: right;
+				/*或者宽度减去 2*pading */
+				width: 270px;
+				height: 100%;
+				padding: 22px;
+				/*防止内边距把区域变大*/
+				box-sizing: border-box;
+				background-color: white;
+			}
+			
+			section .container .right .hot_new_class {
+				width: 228px;
+				height: 1145px;
+				/*border: 1px solid blue;*/
+				position: relative;
+			}
+			
+			section .container .right>h3>span {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background: url(tx/icon-rank.png);
+				margin-right: 13px;
+			}
+			
+			section .container .right>h3 {
+				font-weight: 100;
+				font-size: 22px;
+				margin-bottom: 20px;
+			}
+			
+			section .container .right .hot_new_class .hot_list,
+			.hot_new_class .new_list {
+				width: 228px;
+				height: 1105px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*background-color: gold;*/
+			}
+			
+			section .container .right .hot_new_class .hot_list {
+				z-index: 1;
+			}
+			
+			section .container .right .hot_new_class .hot_list>h3 {
+				width: 226px;
+				height: 34px;
+				background: url(tx/rank-tab-gray-bg.png) no-repeat center;
+				padding-left: 2px;
+				/*如果pading没有效果。
+				 * 一般是因为设置了怪异的盒模型的同时，子元素又比较大，所以移不动。*/
+				padding-bottom: 2px;
+				margin-bottom: 20px;
+				box-sizing: border-box;
+			}
+			
+			section .container .right .hot_new_class .hot_list>h3>a {
+				text-decoration: none;
+				display: inline-block;
+				color: black;
+				font-size: 13px;
+				width: 110px;
+				height: 32px;
+				text-align: center;
+				line-height: 34px;
+				box-sizing: border-box;
+				border-left: 1px solid gainsboro;
+			}
+			
+			section .container .right .hot_new_class .hot_list>h3>a:nth-child(1) {
+				border-top: 1px solid gainsboro;
+			}
+			
+			section .container .right .hot_new_class .hot_list>h3>a:nth-child(2) {
+				border-bottom: 1px solid gainsboro;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li {
+				list-style: none;
+				width: 228px;
+				height: 162px;
+				margin-bottom: 20px;
+				position: relative;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li>img {
+				width: 228px;
+				height: 162px;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li>p {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				font-size: 13px;
+				width: 228px;
+				height: 27px;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li>p>a {
+				display: inline-block;
+				width: 20px;
+				height: 27px;
+				text-decoration: none;
+				text-align: center;
+				line-height: 27px;
+				color: white;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li>p>a:nth-child(1) {
+				background-color: blueviolet;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li>p>a:nth-child(2) {
+				width: 208px;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li:nth-child(2)>p>a:nth-child(1) {
+				background-color: sandybrown;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li:nth-child(3)>p>a:nth-child(1) {
+				background-color: cadetblue;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li:nth-child(4)>p>a:nth-child(1) {
+				background-color: brown;
+			}
+			
+			section .container .right .hot_new_class .hot_list .pic_text>li:nth-child(5)>p>a:nth-child(1) {
+				background-color: lightgreen;
+			}
+			/*纯文本列表*/
+			
+			section .container .right .hot_new_class .hot_list .text>li {
+				list-style: none;
+				width: 228px;
+				height: 22px;
+				margin-bottom: 12px;
+			}
+			
+			section .container .right .hot_new_class .hot_list .text>li>p>span {
+				display: inline-block;
+				width: 18px;
+				height: 20px;
+				background: url(tx/icon-rank-item.png);
+				text-align: center;
+				font-size: 15px;
+				color: white;
+			}
+			
+			section .container .right .hot_new_class .hot_list .text>li>p>a {
+				text-decoration: none;
+				color: black;
+				/*a标签没有区域*/
+				display: inline-block;
+				font-size: 15px;
+				width: 205px;
+				height: 20px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			/*交流*/
+			
+			section .container .right .communication {
+				margin-top: 28px;
+			}
+			
+			section .container .right .communication>p {
+				margin: 10px 0px;
+				font-size: 20px;
+			}
+			
+			section .container .right .communication>p:nth-of-type(2) {
+				font-size: 15px;
+			}
+			/*考试联系*/
+			
+			section .container .right .contact>h3>span:nth-child(1) {
+				background: url(tx/icon-phone.png);
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+			}
+			
+			section .container .right .contact>h3>span:nth-child(2) {
+				font-weight: 200;
+				font-size: 20px;
+			}
+			
+			section .container .right .contact>p {
+				font-size: 15px;
+				margin: 3px 0px;
+			}
+			
+			section .container .right .contact .exam {
+				width: 200px;
+				height: 120px;
+				background-color: gainsboro;
+				margin: 26px 12px;
+			}
+			
+			section .container .right .contact .exam>span {
+				display: block;
+				font-size: 40px;
+				margin: 0 auto;
+				width: 160px;
+				height: 50px;
+				margin-bottom: 5px;
+			}
+			
+			section .container .right .contact .exam>a {
+				display: block;
+				width: 160px;
+				height: 40px;
+				background-color: black;
+				color: white;
+				text-decoration: none;
+				text-align: center;
+				line-height: 40px;
+				font-size: 24px;
+				margin: 0 auto;
+			}
+			
+			/*底部合作伙伴*/
+			footer .partner {
+				height: 350px;
+				width: 1070px;
+				margin: 0 auto;
+				background-color: white;
+			}
+			footer .partner .left{
+				width: 740px;
+				float: left;
+				padding: 20px;
+			}
+			
+			footer .partner .left .up>img{
+				margin: 15px 30px 0 10px;
+				width: 80px;
+			}
+			footer .partner .left .up>img:nth-of-type(6),footer .partner .left .up>img:nth-of-type(12){
+				margin-right:0;
+			}
+			
+			footer .partner .left .up>a{
+				display: inline-block;
+				text-decoration: none;
+				margin: 15px 30px 0px 10px;
+				color: black;
+				position: relative;
+				 top: -10px;
+			}
+			
+			footer .partner .left .down {
+				 margin-top: 10px;
+			}
+			
+			footer .partner .left .down>a{
+				 float: left;
+				 text-decoration: none;
+				 margin: 10px 20px 0 10px;
+				 color: black;
+				 font-size: 13px;
+			}
+			
+			
+			
+			footer .partner .right{
+				width: 227px;
+				float: right;
+				padding: 20px;
+			}
+			footer .partner .right>img{
+				margin: 10px 0px;
+				background-color: white;
+			}
+			
+			
+			/*版权*/
+			footer .copyright {
+				width: 100%;
+				background-color: #A9A9A9;
+				text-align: center;
+				padding: 30px 0px;
+				font-size: 11px;
+			}
+			
+			footer .copyright>p{
+				margin-bottom: 5px;
+			}
+			
+			footer .copyright>p:nth-child(1)>a{
+				margin-right: 20px;
+				text-decoration: none;
+				color: black;
+				border-right: 1px solid black;
+				padding-right:20px ;
+				font-size: 12px;
+			}
+			
+			footer .copyright>p:nth-child(1)>a:nth-child(3){
+				margin-right: 0px;
+				border-right: 0px solid black;
+				padding-right:0px ;
+			}
+			/*底部颜色分割线*/
+			#split_line {
+				width: 100%;
+				height: 4px;
+			}
+			#split_line>li {
+				float: left;
+				width: 25%;
+				height: 4px;
+				list-style: none;
+				background-color: deepskyblue;
+			}
+			
+			#split_line>li:nth-child(2) {
+				background-color: orange;
+			}
+			
+			#split_line>li:nth-child(3) {
+				background-color: green;
+			}
+			
+			#split_line>li:nth-child(4) {
+				background-color: brown;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header>
+			<nav>
+				<div>
+					<img src="tx/logo.png" />
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<img class="search" src="tx/search.png" />
+					<a class="login" href="#">
+						<img src="tx/qq.png" />
+						<br/>登陆
+					</a>
+				</div>
+			</nav>
+			<div class="loop_pic">
+				<img src="tx/1508920480342.jpg" />
+				<img src="tx/1508920480342.jpg" />
+				<img src="tx/1508920480342.jpg" />
+				<img src="tx/1508920480342.jpg"  />
+
+				<ul class="loop_dots">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+			</div>
+			<div class="live">
+				<img src="tx/live-title.png" />
+				<div class="live_content">
+					<img class="live_pic" src="tx/1510296158520.jpg" />
+					<div class="live_text">
+						<h3>JetBrains开发日</h3>
+						<p><span class="time_icon"></span><span class="time">2017年11月15日</span> </p>
+						<p>Kotlin 编程语言的设计和创始人 Andrey Breslav 、JetBrains 开发者宣传推广副总裁 Hadi Hariri做客腾大， 与你来一场技术盛宴。
+						</p>
+					</div>
+				</div>
+				<a class="live_left" href="#"></a>
+				<a class="live_right" href="#"></a>
+				<a class="live_bottom" href="#"></a>
+			</div>
+		</header>
+
+		<section>
+			<div class="container">
+				<div class="content">
+
+					<div class="hot_class">
+						<h3 class="hot_title">
+							<img src="tx/icon-lesson.png"/>
+							热门课程
+							<a href="#">more</a>
+						</h3>
+						<ul class="hot_content">
+							<li>
+								<img src="tx/1510243888411.png" />
+								<a href="#">纪念碑谷2背后的灵感</a>
+								<p>本期大师班推出特别版，专程邀请了《纪念碑谷2》游戏主美、艺术总监David</p>
+							</li>
+							<li>
+								<img src="tx/1509872683613.jpg" />
+								<a href="#">霍金：突破摄星的目标在于实...</a>
+								<p>11月5日，在腾讯we大会上，著名物理学家霍金以视频演讲的方式向人们阐释了</p>
+							</li>
+							<li>
+								<img src="tx/1509450636364.png" />
+								<a href="#">青山周平-我的设计理想国</a>
+								<p>B.L.U.E.建筑事务所创始人。通过巧妙的空间设计完美解决了普通家庭的居.通过巧妙的空间设计完美解决了普通家庭的居</p>
+							</li>
+						</ul>
+					</div>
+
+					<div class="good_share">
+						<h3 class="share_title">
+							<img src="tx/icon-share.png"/>
+							干货分享
+							<a href="#">more</a>
+						</h3>
+						<ul class="good_content">
+							<li>
+								<div class="live_content">
+									<img class="live_pic" src="tx/1509095853300.png" />
+									<div class="live_text">
+										<h3>JetBrains开发日</h3>
+										<p><span class="time_icon"></span><span class="time">2017年11月15日</span> </p>
+										<p>Kotlin 编程语言的设计和创始人 Andrey Breslav 、JetBrains 开发者宣传推广副总裁 Hadi Hariri做客腾大， 与你来一场技术盛宴。
+										</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="live_content">
+									<img class="live_pic" src="tx/1509098009686.png" />
+									<div class="live_text">
+										<h3>JetBrains开发日</h3>
+										<p><span class="time_icon"></span><span class="time">2017年11月15日</span> </p>
+										<p>Kotlin 编程语言的设计和创始人 Andrey Breslav 、JetBrains 开发者宣传推广副总裁 Hadi Hariri做客腾大， 与你来一场技术盛宴。
+										</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="live_content">
+									<img class="live_pic" src="tx/1509509065544.png" />
+									<div class="live_text">
+										<h3>JetBrains开发日</h3>
+										<p><span class="time_icon"></span><span class="time">2017年11月15日</span> </p>
+										<p>Kotlin 编程语言的设计和创始人 Andrey Breslav 、JetBrains 开发者宣传推广副总裁 Hadi Hariri做客腾大， 与你来一场技术盛宴。
+										</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+
+					<!--<div class="special_class">
+					</div>-->
+					<div class="hot_class">
+						<h3 class="hot_title">
+							<img src="tx/icon-lesson.png"/>
+							专题课程
+							<a href="#">more</a>
+						</h3>
+						<ul class="hot_content">
+							<li>
+								<img src="tx/1509854541448.jpg" />
+								<a href="#">纪念碑谷2背后的灵感</a>
+								<p>本期大师班推出特别版，专程邀请了《纪念碑谷2》游戏主美、艺术总监David</p>
+							</li>
+							<li>
+								<img src="tx/1510548125915.jpg" />
+								<a href="#">霍金：突破摄星的目标在于实...</a>
+								<p>11月5日，在腾讯we大会上，著名物理学家霍金以视频演讲的方式向人们阐释了</p>
+							</li>
+							<li>
+								<img src="tx/1509854541448.jpg" />
+								<a href="#">青山周平-我的设计理想国</a>
+								<p>B.L.U.E.建筑事务所创始人。通过巧妙的空间设计完美解决了普通家庭的居.通过巧妙的空间设计完美解决了普通家庭的居</p>
+							</li>
+						</ul>
+					</div>
+
+					<div class="elaborate_calss">
+						<h3 class="elaborate_title">
+							<img src="tx/icon-lesson.png"/>
+							精品课程
+							<a href="#">more</a>
+						 </h3>
+
+						<ul class="elaborate_content">
+							<li>
+								<h3>
+					    			<span>产品-营销</span>
+					    			<a href="#">more</a>
+					    		</h3>
+								<img src="tx/1509509065544.png" />
+								<p>腾讯王莹：视频内容消费下的营销升级</p>
+								<p>腾讯视频通过以视频内容生态为基础，实现营销价值的升级是腾讯视频连接内容，引爆营销的方法。</p>
+							</li>
+
+							<li>
+								<h3>
+					    			<span></span>
+					    			<a href="#">more</a>
+					    		</h3>
+								<img src="tx/1505999675421.png" />
+								<p>腾讯王莹：视频内容消费下的营销升级</p>
+								<p>腾讯视频通过以视频内容生态为基础，实现营销价值的升级是腾讯视频连接内容，引爆营销的方法。</p>
+							</li>
+
+							<li>
+								<h3>
+					    			<span></span>
+					    			<a href="#">more</a>
+					    		</h3>
+								<img src="tx/1509095853300.png" />
+								<p>腾讯王莹：视频内容消费下的营销升级</p>
+								<p>腾讯视频通过以视频内容生态为基础，实现营销价值的升级是腾讯视频连接内容，引爆营销的方法。</p>
+							</li>
+
+							<li>
+								<h3>
+					    			<span></span>
+					    			<a href="#">more</a>
+					    		</h3>
+								<img src="tx/1510650852264.jpg" />
+								<p>腾讯王莹：视频内容消费下的营销升级</p>
+								<p>腾讯视频通过以视频内容生态为基础，实现营销价值的升级是腾讯视频连接内容，引爆营销的方法。</p>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+				<aside class="right">
+					<h3><span></span>排行榜</h3>
+					<div class="hot_new_class">
+						<div class="hot_list">
+							<h3>
+					     	<a href="#">最热排行</a><a href="#">新课上线</a>
+					     </h3>
+							<ul class="pic_text">
+								<li>
+									<img src="tx/1510631401811.jpg" />
+									<p><a href="#">1</a><a href="#">腾讯8分钟产品课|第二集：定位</a></p>
+								</li>
+								<li>
+									<img src="tx/1452663224623.jpg" />
+									<p><a href="#">2</a><a href="#">腾讯8分钟产品课|第二集：定位</a></p>
+								</li>
+								<li>
+									<img src="tx/1510631401811.jpg" />
+									<p><a href="#">3</a><a href="#">腾讯8分钟产品课|第二集：定位</a></p>
+								</li>
+								<li>
+									<img src="tx/1510631401811.jpg" />
+									<p><a href="#">4</a><a href="#">腾讯8分钟产品课|第二集：定位</a></p>
+								</li>
+								<li>
+									<img src="tx/1510631401811.jpg" />
+									<p><a href="#">5</a><a href="#">腾讯8分钟产品课|第二集：定位</a></p>
+								</li>
+
+							</ul>
+
+							<ul class="text">
+								<li>
+									<p>
+										<span>6</span>
+										<a href="#">林采宜：把自己投资成摇钱树摇钱树摇钱树摇钱树</a>
+									</p>
+								</li>
+								<li>
+									<p>
+										<span>7</span>
+										<a href="#">林采宜：把自己投资成摇钱树</a>
+									</p>
+								</li>
+								<li>
+									<p>
+										<span>8</span>
+										<a href="#">林采宜：把自己投资成摇钱树</a>
+									</p>
+								</li>
+								<li>
+									<p>
+										<span>9</span>
+										<a href="#">林采宜：把自己投资成摇钱树</a>
+									</p>
+								</li>
+								<li>
+									<p>
+										<span>10</span>
+										<a href="#">林采宜：把自己投资成摇钱树</a>
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="new_list">
+						</div>
+					</div>
+
+					<div style="background-color: gray ; width: 270px; height: 1px ; position: relative; left: -21px;">
+
+					</div>
+
+					<div class="communication">
+						<img src="tx/1437012075279.png" />
+						<p>腾讯大学</p>
+						<p>腾讯大学作为腾讯特色的学习交流平台，服务于腾讯合作伙伴及用户，面向互联网产业链，传播腾讯经验，分享行业知识及优秀实践，助力合作伙伴成长，推动开放共赢的互联网生态圈的建立。</p>
+					</div>
+
+					<div style="background-color: gray ; width: 270px; height: 1px ; position: relative; left: -21px; margin: 20px 0px;">
+					</div>
+					<div class="contact">
+						<h3><span></span><span>联系我们</span></h3>
+						<p>合作：university@tencent.com <br/> QQ&nbsp;：2813343187</p>
+						<div class="exam">
+							<span>在线考试</span>
+							<a href="#">ENTER入口</a>
+						</div>
+					</div>
+				</aside>
+
+				<div class="qr_code">
+					<p>手机看直播学干货</p>
+					<img src="tx/qr.jpg" />
+					<p>关注腾讯大学公号</p>
+				</div>
+
+			</div>
+		</section>
+
+		<ul id="split_line">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+		<footer>
+			<div class="partner">
+				<div class="left">
+					<div class="up">
+						<p>开放平台</p>
+						<img src="tx/ke.png" />
+						<img src="tx/bugly_logo.jpg" />
+						<img src="tx/cloud.png" />
+						<img src="tx/ieg.png" />
+						<img src="tx/hitem1.jpg" />
+						<img src="tx/hitem3.jpg" />
+						<img src="tx/hitem6.jpg" />
+						<img src="tx/hitem8.jpg" />
+						<img src="tx/hitem9.jpg" />
+						<img src="tx/logo_bigdata.png" />
+						<img src="tx/logo_guangdiantong.png" />
+						<img src="tx/link_open.png" />
+						<img src="tx/wetest_logo.png" />
+						<img src="tx/meia.png" />
+						<a href="#">更多</a>
+					</div>
+					<div class="down">
+						<p>合作伙伴</p>
+						<a href="#">腾讯云论坛</a>
+						<a href="#">TechWeb</a>
+						<a href="#">腾讯Alloyteam</a>
+						<a href="#">CSDN</a>
+						<a href="#">36Kr</a>
+						<a href="#">DoNews</a>
+						<a href="#">APP游戏部落</a>
+						<a href="#">天极网</a>
+						<a href="#">凤凰网科技频道</a>
+						<a href="#">易观网</a>
+						<a href="#">馒头商学院</a>
+						<a href="#">雷锋网</a>
+						<a href="#">飞象网</a>
+						<a href="#">数码港</a>
+						<a href="#">艾瑞网</a>
+						<a href="#">落伍者</a>
+						<a href="#">LAMP人</a>
+						<a href="#">QQ浏览器</a>
+					</div>
+				</div>
+				<div class="right">
+					<p>收听微博</p>
+					<img src="tx/opentweibo.png" />
+					<p>关注空间</p>
+					<img src="tx/openzone.png" />
+				</div>
+			</div>
+			<div class="copyright">
+				<p><a href="#">服务协议</a><a href="#">隐私政策</a><a href="#">版权保护投诉指引</a></p>
+			 <p>Copyright&copy;1998 - 2017 Tencent. All Rights Reserved.</p>
+			 <p>腾讯公司 版权所有</p>
+			</div>
+		</footer>
+	</body>
+
+</html>

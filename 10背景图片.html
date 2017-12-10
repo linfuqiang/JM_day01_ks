@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style type="text/css">
+			.div01 {
+				width: 1000px;
+				height: 100px;
+				/*  背景显示要设置宽高 */
+				/*no-repeat :不重复*/
+				/*center：正居中*/
+				background:  url(img/Koala.jpg) no-repeat left top;
+				/*background-image: url(img/Koala.jpg) ;
+				background-repeat: no-repeat;
+				background-position-x: left ;
+				background-position-y: top;*/
+				border: 1px solid red;
+				/*移动背景图片的位置。2个参数，第一个代表x轴，第二个代表y轴*/
+				background-position: -500px -500px;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.list {
+				width: 736px;
+				height: 78px;
+				border: 1px solid orange;
+				margin: 50px auto;
+			}
+			
+			.list li {
+				list-style: none;
+				float: left;
+				height: 78px;
+				background: url(img/nav.png);
+			}
+			/*修改图片，这个代码必须要放在设置图片位置的前面*/
+			
+			.list li:hover {
+				background: url(img/nav-on.png);
+			}
+			/*选中第几个*/
+			
+			.list li:nth-child(1) {
+				width: 100px;
+			}
+			
+			.list li:nth-child(2) {
+				width: 124px;
+				/*默认是左上角排列图片，需要往右移动，第一个选项卡的宽度*/
+				background-position: -100px;
+			}
+			
+			.list li:nth-child(3) {
+				width: 146px;
+				/*记得累加前面的宽度*/
+				background-position: -224px;
+			}
+			
+			.list li:nth-child(4) {
+				width: 120px;
+				background-position: -370px;
+			}
+			
+			.list li:nth-child(5) {
+				width: 124px;
+				background-position: -490px;
+			}
+			
+			.list li:nth-child(6) {
+				width: 122px;
+				background-position: 122px;
+			}
+			/*85*75*/
+			
+			.logo {
+				width: 400px;
+				height: 75px;
+				margin: 100px auto;
+				border: 1px solid red;
+			}
+			.logo li {
+				list-style: none;
+				float: left;
+				width: 85px;
+				height: 75px;
+				background: url(img/logo.png);
+			}
+			.logo li:nth-child(1){
+				/*第一个参数是x轴，2个y轴。（只写一个默认是x）*/
+				background-position: 0px -100px;
+			}
+			.logo li:nth-child(2){
+				background-position:-145px -100px ;
+			}
+			.logo li:nth-child(3){
+				background-position:0px -180px ;
+			}
+			.logo li:nth-child(4){
+				background-position: -145px -180px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div01">
+		</div>
+		<ul class="list">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+		<ul class="logo">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+	</body>
+
+</html>

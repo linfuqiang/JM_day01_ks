@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+         <style type="text/css">
+         	*{
+         		padding: 0;
+         		margin: 0;
+         	}
+         	.div01{
+         		position: absolute;
+         		width: 200px;
+         		height: 200px;
+         		background-color: blue;
+         		/*使用关键帧动画*/
+         		/*1,动画名字，2,动画时间，3，执行次数*/
+         		animation: colors  3s  infinite   ;
+         		/*延时执行*/
+         		animation-delay:2s ;
+         		
+         	}
+            /*squ 取得动画的名字*/
+            @keyframes squ{
+            	/*默认from 0%，开始*/
+            	from{top: 0px; left: 0px; }
+            	/*默认to是100%，结束*/
+            	to {top: 0px; left: 400px;  }
+            }
+            
+            @keyframes squ4{
+            	0%{top: 0px; left: 0px; }
+            	25%{top: 0px; left: 400px;}
+            	50%{top:400px; left: 400px;} 
+            	75%{top: 400px;left: 0px;} 
+            	100%{top: 0px; left: 0px;  }
+            }
+            
+            @keyframes colors{
+            	0%{background-color: red; }
+            	50%{background-color: green; }
+            	100%{background-color: blue;  }
+            }
+            
+            
+         </style>
+	</head>
+	<body>
+		 <div class="div01">
+		 </div>
+	</body>
+</html>

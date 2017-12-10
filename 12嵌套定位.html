@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.grandfather {
+				width: 800px;
+				height: 800px;
+				background-color: yellowgreen;
+				position: absolute;
+			}
+			.father {
+				width: 400px;
+				height: 400px;
+				background-color: blue;
+				margin: 100px 0 0 100px;
+				position: relative;
+			}
+			/*绝对定位：到底相对谁？
+                             自己相对谁？
+                             由自己往外层一层一层的找。直到遇到带有position属性的父元素，
+                             那么他就相对于这个父元素。(后续父元素即使有，也没用。)
+                             假如，一直都没有找到，那么就相对于整个界面。
+              * */
+	    .father .child {
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				/*正中心*/
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--  爸爸，距离界面上100px 左100px
+			  400x400
+			  儿子50x50 .儿子要在爸爸的正中心
+		-->
+		<div class="grandfather">
+			<div class="father">
+				<div class="child">
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				background-color: darkslategray;
+			}
+			
+			.boxs {
+				width: 1100px;
+				margin: 100px auto;
+			}
+			
+			.boxs>div {
+				width: 300px;
+				height: 300px;
+				background-color: black;
+				margin: 20px;
+				float: left;
+				position: relative;
+			}
+			
+			.boxs .box01>ul {
+				width: 120px;
+				height: 90px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				/*background-color: red;*/
+			}
+			
+			.boxs .box01>ul>li {
+				float: left;
+				width: 20px;
+				height: 90px;
+				margin-right: 4px;
+				background-color: #67CF22;
+				list-style: none;
+				animation: anim01 1.2s infinite;
+			}
+			
+			.boxs .box01>ul>li:nth-child(1) {
+				animation-delay: 0.4s;
+			}
+			
+			.boxs .box01>ul>li:nth-child(2) {
+				animation-delay: 0.5s;
+			}
+			
+			.boxs .box01>ul>li:nth-child(3) {
+				animation-delay: 0.6s;
+			}
+			
+			.boxs .box01>ul>li:nth-child(4) {
+				animation-delay: 0.7s;
+			}
+			
+			.boxs .box01>ul>li:nth-child(5) {
+				animation-delay: 0.8s;
+			}
+			
+			@keyframes anim01 {
+				0% {
+					background-color: #67CF22;
+					transform: scale(1);
+				}
+				20% {
+					background-color: white;
+					transform: scaleY(2);
+				}
+				100% {
+					background-color: #67CF22;
+					transform: scale(1);
+				}
+			}
+			/*第二个*/
+			
+			.boxs>div .contianer {
+				width: 120px;
+				height: 120px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			
+			.boxs .box02 .rotateXY {
+				width: 120px;
+				height: 120px;
+				background-color: #67CF22;
+				/*设置为宽度一半就是圆*/
+				border-radius: 60px;
+				animation: anim2 3s infinite;
+			}
+			
+			@keyframes anim2 {
+				0% {
+					transform: rotateX(0deg) rotateY(180deg);
+				}
+				/*X Y的先后顺序不能颠倒*/
+				50% {
+					background-color: white;
+					transform: rotateX(180deg) rotateY(180deg);
+				}
+				100% {
+					transform: rotateX(180deg) rotateY(0deg);
+				}
+			}
+			/*第三个*/
+			
+			.boxs .box03>div>div {
+				width: 120px;
+				height: 120px;
+				background-color: #67CF22;
+				border-radius: 60px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				animation: anim3 2s infinite;
+			}
+			
+			.boxs .box03 .scale02 {
+				animation-delay: 1s;
+			}
+			
+			@keyframes anim3 {
+				0% {
+					transform: scale(0);
+				}
+				50% {
+					transform: scale(1);
+					opacity: 0.5;
+				}
+				100% {
+					transform: scale(0);
+				}
+			}
+			/*第四个*/
+			
+			.boxs .box04>div>div {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 60px;
+				height: 60px;
+				background-color: #67CF22;
+				animation: anim4 2s infinite;
+				/*transform-origin: 100% 100%;*/
+			}
+			
+			.boxs .box04 .move02 {
+				animation-delay: 1s;
+			}
+			
+			@keyframes anim4 {
+				0% {
+					transform: translateX(0) translateY(0) rotate(0deg);
+				}
+				25% {
+					transform: scale(0.2) translateX(60px) translateY(0) rotate(90deg);
+				}
+				50% {
+					transform: translateX(60px) translateY(60px) rotate(180deg);
+				}
+				75% {
+					transform: translateX(0) translateY(60px) rotate(270deg);
+				}
+				100% {
+					transform: translateX(0) translateY(0) rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="boxs">
+
+			<div class="box01">
+
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+			</div>
+
+			<!--黑框-->
+			<div class="box02">
+				<!--定位居中容器-->
+				<div class="contianer">
+					<!--动画元素-->
+					<div class="rotateXY">
+					</div>
+				</div>
+			</div>
+
+			<div class="box03">
+				<div class="contianer">
+					<div class="scale01">
+					</div>
+					<div class="scale02">
+					</div>
+				</div>
+			</div>
+
+			<div class="box04">
+				<div class="contianer">
+					<div class="move01">
+					</div>
+					<div class="move02">
+					</div>
+				</div>
+			</div>
+
+			<div class="box05">
+			</div>
+
+			<div class="box06">
+			</div>
+
+		</div>
+	</body>
+
+</html>

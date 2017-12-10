@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<!--
+			一,html标签
+			
+			1、文本
+			   p(有区域，天生占一行)、a、span(没有区域，需要使用display)、h1-6
+			2、图片
+			   img（宽高设置一个，自动缩放）
+			3、其他
+			   div、ul、li（天生排成一列，经常使用float排成一行）
+		-->
+		
+		<!--二,CSS
+			
+			1,常用
+			width
+			height
+			padding
+			margin
+			border
+			background ： background-position用于移动图片 background-size可以调节图片大小
+			color
+			font-size
+			text-algin、line-height：同时写，行高和高度设置一样
+			text-decoration
+			list-style
+			display ：block  inline-block(可以排成一行) 只有没有区域的标签要设置宽高，才使用。
+			2，不常用
+			box-shadow
+			outline
+			overflow ：hidden  隐藏超出区域的部分。假如失效一般都是没有设置宽高。
+			box-sizing：设置之后，padding,border不会增大区域。
+			3，定位
+			float   ：常用与把标签排成一行 
+			position、transform（移动自己的百分比配合9大点）:absolute 、relative
+                        自己到处跑用absolute，儿子到处跑自己用relative。
+                        特殊：微调位置使用relative            
+                        （使用relative不会影响页面结构，他相对是自己本身原来的位置
+              absolute相对于父元素上面有position属性（备注值不能是static）  。如果没有，就相对整个页面。    
+                        ）
+			left、top、right、bottom:类似margin
+			z-index：防止被其他透明标签覆盖。
+			
+                        定具体位置运用： 
+                        优先使用margin、padding
+                        兄弟之间使用margin,父子之间用padding.            
+            margin:0 auto;(水平居中：父元素和自己都要有宽度)            
+                        其次考虑定位。
+                        
+                        坑：
+            1、CSS明明一行，但是界面显示换行，什么原因？
+                              父元素宽度不够。
+            2、设置背景图片不显示？
+                              没有设置宽高。
+                              设置宽高也不显示? 
+               a,span那些没有区域的标签，使用dispaly:block.
+               backgroud-positon有问题。
+            3、设置的CSS没有效果？
+                              一、class使用错了。 
+                              二、> 直接子类没有，可能是孙类。使用空格可以避免，但是容易选错，会选到所有子类。  
+                              三、nth-child以及nth-of-type用错了。
+                                     子类都是同一种元素使用  nth-child，包含其他元素就要使用nth-of-type
+                              四、本来就没有效果。怎么排除（设置一个背景或者边框，如果显示就说明， 这个CSS不起效果）                       
+                              五、权重不够。如何避免,见惯例4.（非,常规解决：马上定义一个id)
+            4、z-index：防止被其他透明标签覆盖（可以设置一个背景）。                         
+                            
+                    
+                    惯例：
+          1、网页内容要居中，但是不要使用margin-left去量。不然，不同分辨率的界面，就不一定是居中。
+          2、考虑最后一个标签margin或者pading设置为0.不然就会换行，不是父元素宽度造成的。
+          3、什么时候用img,什么时候用background。src是CSS吗？不是。那么hover可以改吗？不行。 
+                          如果使用js就不用考虑了。
+          4、CSS写法：由外写到内部，如果觉得太长了，可以省略中间的。1，结构清晰 ；2，权重不会出问题                
+		-->
+		
+		
+	</body>
+</html>

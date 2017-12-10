@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--样式标签-->
+		<style type="text/css">
+			/*标签选择器：直接使用标签名
+			 他会选中所有的p标签
+			 * 
+			 * */
+			
+			p {
+				color: #0000FF;
+				font-size: 30px;
+			}
+			/*写在标签内部的样式，优先级最高*/
+			/*优先级一样的情况下，下面的样式会覆盖上面的。*/
+			/*同一个属性，只允许出现一次。*/
+			
+			p {
+				color: #FF0000;
+			}
+			/*2.id选择器：同一个页面，相同id名只能有一个*/
+			
+			#p2 {
+				color: #00FF00;
+			}
+			/*3.class选择器。一般用于一类标签有相同的样式*/
+			
+			.pText,
+			#p3 {
+				color: #FF00FF;
+			}
+			/*一般来说优先级：id>class>标签*/
+			/*每一种选择器都有一个权重*/
+			/*
+	                内部：1000
+	        id:100
+	        class:10
+	                标签：1 
+	         * */
+			/*图片一般只要设置一个方向就可以了。原因：会默认按比例缩放*/
+			
+			img {
+				/*width: 150px;*/
+				height: 200px;
+			}
+			/*代表.div 下面所有的P标签
+	                    注意要有空格
+	         * */
+			.div01 p {
+				color: #FFFF00;
+			}
+			.div01 .pDiv{
+				color: red;
+			}
+			
+			.pCenter{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				/*文本居中*/
+				/*text-align: center 只能保证水平居中*/
+				/*css控制水平方向的位置，很简单，垂直方向很难。*/
+				text-align: center;
+				/*行高，设置行高和标签本身高度一样*/
+				line-height: 200px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!--
+			1,HTML标签决定网页里面有什么内容
+			2,CSS决定网页内容的样式。
+		-->
+		<!--RGB：#+6位16进制的数，每两位代表一种颜色-->
+		<!--font-size ：字体大小-->
+		<p style="color:#FF0000;font-size: 30px; background-color: #0000FF ; width: 150px; height: 100px;">文本样式</p>
+		<p>我是一个段落1~~</p>
+		<p id="p2">我是一个段落2~~</p>
+		<p>我是一个段落3~~</p>
+		<p class="pText">我是一个段落4~~</p>
+		<p class="pText">我是一个段落5~~</p>
+		<img src="img/Koala.jpg" />
+		<p id="p3">我是一个段落6~~</p>
+		<!--所有div内部的P标签颜色是黄色-->
+		<div class="div01">
+			<p>div内部的p1</p>
+			<p class="pDiv">div内部的p2</p>
+			<p>div内部的p3</p>
+		</div>
+		<p class="pCenter">我要居中</p>
+	</body>
+
+</html>

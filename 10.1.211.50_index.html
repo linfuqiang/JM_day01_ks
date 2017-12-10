@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.cla1 {
+				width: 800px;
+				height: 320px;
+				margin: 30px auto;
+				background-color: blue;
+				/*overflow: hidden;*/
+			}
+			
+			.cla1>div {
+				width: 160px;
+				height: 320px;
+				float: left;
+				/*display: inline-block;*/
+				box-shadow: 3px 3px 10px black;
+				transition: all 3s;
+			}
+			
+			.cla1>div>p {
+				height: 40px;
+				background: rgba(0, 0, 0, 0.5);
+				color: white;
+				transform: translateY(260px);
+				padding: 10px;
+			}
+			
+			.cla2 {
+				background: url(imgfq/img1.jpg) ;
+			}
+			
+			.cla3 {
+				background: url(imgfq/img2.jpg) ;
+			}
+			
+			.cla4 {
+				background: url(imgfq/img3.jpg) ;
+			}
+			
+			.cla5 {
+				background: url(imgfq/img4.jpg);
+			}
+			
+			.cla6 {
+				background: url(imgfq/img5.jpg);
+			}
+			
+			
+			
+			.cla1:hover div {
+				width: 40px;
+			}
+			
+			.cla1>div:hover {
+				width: 640px;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="cla1">
+			<div class="cla2">
+				<p>webbing</p>
+			</div>
+			<div class="cla3">
+				<p>webbing</p>
+			</div>
+			<div class="cla4">
+				<p>webbing</p>
+			</div>
+			<div class="cla5">
+				<p>webbing</p>
+			</div>
+			<div class="cla6">
+				<p>webbing</p>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*  *通配符：所有标签
+			 * 所有标签， 默认有自带的属性
+			 *  */
+			
+			* {
+				/*外边距*/
+				margin: 0;
+				/*内边距*/
+				padding: 0;
+			}
+			
+			.div01 {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				/*不指明方向一个参数，代表四个方向都距离一样*/
+				/*margin: 100px;*/
+				/*顺时针：上、右、下、左*/
+				/*margin: 100px 50px 200px 50px;*/
+				/*二个参数：上下、左右*/
+				/*margin: 100px 100px ;*/
+				/*也可以使用负数*/
+				/*margin-top: 100px;*/
+				/*水平居中*/
+				margin: 0 auto;
+			}
+			/*标签之间，上下margin会合并，取最大值。*/
+			
+			.up {
+				width: 200px;
+				height: 200px;
+				background-color: green;
+				margin-bottom: 100px;
+			}
+			
+			.down {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				margin-top: 100px;
+			}
+			
+			img {
+				width: 200px;
+			}
+			/*margin左右方向不会合并。距离相加*/
+			.img1{
+				margin-right: 100px;
+			}
+			.img2{
+				margin-left: 100px;
+			}
+			.father{
+				width: 400px;
+				height: 400px;
+				background-color: blue;
+				padding: 100px;
+				/*边框：1，边框宽度，2，边框样式（solid 实线），3边框颜色*/
+				border: 20px solid red ;
+				/*border-top: 20px solid red;
+				border-bottom: 20px double plum;*/
+				border-radius: 10px;
+				
+			}
+			.father .child{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				/*设置圆角*/
+                border-radius: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div01">
+		</div>
+		<div class="up">
+		</div>
+		<div class="down">
+		</div>
+		<img class="img1" src="img/Koala.jpg" />
+		<img class="img2" src="img/Koala.jpg" />
+			
+		<div class="father">
+			<div class="child">
+			</div>
+		</div>
+		
+	</body>
+
+</html>

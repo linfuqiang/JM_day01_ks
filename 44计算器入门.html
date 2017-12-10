@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		   <p id="record"></p>
+		   <input  type="text"  id="input01" />
+		   <input  type="button"  id="btn01"  value="1"/>
+		   <input  type="button"  id="btnPlus"  value="+"/>
+		   <input  type="button"  id="btnResult"  value="="/>
+		   <input  type="button"  id="btnDelete"  value="<--"/>
+	</body>
+	<script type="text/javascript">
+		  var  input01 =document.querySelector("#input01");
+		  var  btn01 =document.querySelector("#btn01");
+		  var  btnPlus =document.querySelector("#btnPlus");
+		  var  btnResult =document.querySelector("#btnResult");
+		  var  record =document.querySelector("#record");
+		  var  btnDelete =document.querySelector("#btnDelete");
+		  var  signal = "+";
+		   btn01.onclick=function(){
+			  input01.value =input01.value+1;
+		  };
+		  //1112  //111
+		 btnDelete.onclick=function(){
+		 	  //substring(a,b),截取[,)
+			  input01.value =input01.value.substring(0,input01.value.length-1);
+		  };
+		 
+		 btnPlus.onclick=function(){
+			  signal="+";
+			  //提取结果显示
+			  record.innerText=input01.value +"  "+signal;
+			  //清空数据
+			  input01.value="";
+		};
+		  
+		  btnResult.onclick=function(){
+		  	//11111 + 1111111
+		  	record.innerText=record.innerText+" "+input01.value;
+		  	//用+切割 ,结果是数组
+		  	var xy=record.innerText.split("+"); //["1111","11111"]
+		  	var x=xy[0]*1;
+		  	var y=xy[1]*1;
+		  	input01.value=x+y;
+	     };
+		
+		    
+		
+	</script>
+</html>

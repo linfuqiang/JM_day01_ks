@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.boxs{
+				width: 800px;
+				margin: 100px auto;
+			}
+			
+			.boxs>div{
+				float: left;
+				width: 400px;
+				height: 800px;
+			}
+			.boxs .left{
+				background-color: red;
+			}
+			
+			.boxs .right{
+				background-color: blue;
+			}
+
+            .boxs .left .up-l{
+            	display: none;
+            }	
+            
+            .boxs .left .down-l{
+            	width: 400px;
+            	height: 800px;
+            	background-color: rosybrown;
+            }		
+            
+            .boxs .right .up{
+            	width: 400px;
+            	height: 400px;
+            	background-color: gold;
+            }
+            
+             .boxs .right .down{
+            	width: 400px;
+            	height: 400px;
+            	background-color: green;
+            }
+            
+            
+            @media only screen and  (max-width: 800px) {
+                 
+                 .boxs{
+                 	width: 600px;
+                 }
+                 
+                 .boxs .right{
+                 	display: none;
+                 }
+                 
+                 .boxs .left{
+                 	width: 600px;
+                 }
+                 
+                 .boxs .left .up-l{
+                 	display: block;
+                 	width: 600px;
+                 	height: 200px;
+                 	background-color: black;
+                 }
+                 
+                 .boxs .left .down-l{
+                 	width: 600px;
+                 }
+                 
+                 
+            	
+            }
+            
+            
+            
+			
+		</style>
+	</head>
+
+	<body>
+
+		<div class="boxs">
+			<div class="left">
+				<div class="up-l">
+				</div>
+				<div class="down-l">
+				</div>
+			</div>
+			<div class="right">
+				<div class="up">
+				</div>
+				<div class="down">
+				</div>
+			</div>
+		</div>
+		
+		<div class="div01">
+			
+		</div>
+		
+		<div class="div02">
+			
+		</div>
+		
+	</body>
+
+</html>

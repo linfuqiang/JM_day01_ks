@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		   *{
+		   	margin: 0;
+		   	padding: 0;
+		   }
+		
+			.content a {
+				width: 30px;
+				height: 30px;
+				border: 1px solid gainsboro;
+				/*去掉 a标签的下划线*/
+				text-decoration: none;
+				/*控制a标签在一行，同时可以设置宽高*/
+				display: inline-block;
+				text-align: center;
+				/*行高要和自己设置的高度一直*/
+				line-height: 30px;
+				/*控制页码之间的间距*/
+				margin-right: 5px;
+			}
+			/*css最好是由外向内一层一层写*/
+			.content .previous,
+			.content .next {
+				width: 70px;
+			}
+			/*监听鼠标滑动*/
+			.content a:hover {
+				background-color: blue;
+				color: white;
+			}
+			.content{
+				width: 550px;
+				margin: 100px auto;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+
+		<div class="content">
+			<a class="previous" href="#">前一页</a>
+			<a href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">7</a>
+			<a href="#">8</a>
+			<a href="#">9</a>
+			<a class="next" href="#">后一页</a>
+		</div>
+
+	</body>
+
+</html>

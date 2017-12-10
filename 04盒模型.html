@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		        *{
+		      	/*所有标签都使用怪异盒模型*/
+		      	/*box-sizing: border-box;*/
+		      }
+		      
+			div{
+				width: 200px;
+				height: 200px;
+			 }
+              .div01{
+              	/*margin: 50px;*/
+              	border: 50px solid  goldenrod;
+              	padding: 50px;
+              	background-color: red;
+              	/*新的盒模型，宽度是固定的。设置的width是多少就是多少。不会被内边距和边框所影响。*/
+              	box-sizing: border-box;
+              	/*默认是content-box .真实宽度=width+pading-left+pading-right+boder-left+boder-right*/
+              }
+              .div02{
+              	background-color: blue;
+              }
+			
+		</style>
+	</head>
+	<body>
+		
+		  <div class="div01">
+		  </div>
+		  <div class="div02">
+		  </div>
+	</body>
+</html>

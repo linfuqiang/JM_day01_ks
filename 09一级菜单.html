@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			ul li{
+				/*去掉无序列表前面的点*/
+				list-style: none;
+				display: inline-block;
+				margin-right: 10px;
+				/*rgba 前面三个参数是10进制的颜色值。最后一个参数是透明度0-1之间。*/
+				border-top:3px solid rgba(0,0,0,0) ;
+			}
+			ul li a{
+				text-decoration: none;
+			} 
+			
+			ul li:hover{
+				border-top-color:blue ;
+			}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<ul>
+			<li><a href="#">首页</a></li>
+			<li>
+				<a href="#">发现</a>
+			</li>
+			<li><a href="#">学习</a></li>
+			<li><a href="#">培训</a></li>
+			<li><a href="#">训练营</a></li>
+			<li><a href="#">招聘</a></li>
+		</ul>
+	</body>
+</html>

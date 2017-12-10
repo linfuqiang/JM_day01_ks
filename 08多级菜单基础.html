@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div01 {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				/*隐藏*/
+				/*display: none;*/
+			}
+			
+			.div01 .div02 {
+				width: 50px;
+				height: 50px;
+				background-color: red;
+			}
+			/*:前面是谁，就是谁监听*/
+			/*大括号前面最近是谁，就是谁改变。*/
+			
+			.div01:hover .div02 {
+				display: none;
+			}
+			/*.div01 .div02:hover{
+				display: none;
+			}*/
+		</style>
+
+	</head>
+
+	<body>
+		<div class="div01">
+			<div class="div02">
+			</div>
+		</div>
+		<!--列表1，有序，2，无序，3，自定义.无序用得最多-->
+		<!--有序-->
+		<ol type="A" start="A">
+			<li>第一个</li>
+			<li>第二个</li>
+			<li>第三个</li>
+		</ol>
+		<!--无序-->
+		<ul>
+			<li>一</li>
+			<li>二</li>
+			<li>三</li>
+		</ul>
+		<!--自定义-->
+		<dl>
+			<dd>1</dd>
+			<dd>2</dd>
+			<dd>3</dd>
+		</dl>
+		
+		
+		
+		
+
+	</body>
+</html>

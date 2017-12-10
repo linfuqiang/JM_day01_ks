@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			.div01{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				/*设置过度*/
+				/*all所有属性都执行过度，1s动画执行时间*/
+				transition: all 1s;
+				/*动画延时执行*/
+				/*transition-delay: 5s;*/
+				/*设置动画的旋转中心点*/
+				 transform-origin: 0% 0%;
+				
+			}
+			.div01:hover{
+				/*1，平移动画translate*/
+				/*2，缩放动画scale*/
+				/*3，旋转动画rotate*/
+				/*transform: translateX(200px) translateY(200px) scale(2) rotate(360deg) ;*/
+				/*transform:   rotate(-360deg) ;*/
+				transform:   scale(2) ;
+				/*width: 400px;
+				height: 400px;*/
+			}
+			
+		</style>
+	</head>
+	<body>
+	   <div class="div01">
+      </div>
+	</body>
+</html>
