@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		   <!--
+		   	1,变量
+		   	2,分支(if else、swich case、?:)    +    循环 (fori)  
+		   	3,方法——程序语言 描述函数（复用）
+		   	        f(x)= x+1;
+		   	        function(x){x+1;}   
+		   	4,数据结构——数组
+		   	5,面向对象
+		   	
+		   	6,本语言的特殊API
+		   	    操作dom:1,修改标签的内容 ;2,修改标签的样式
+		   	          3,监听器  4,AJAX局部刷新
+		   -->
+		
+	    
+	</body>
+	<!--js标签一般写在body下面-->
+	<script type="text/javascript">
+	  var a = 1 ; 
+      var  b = "1";
+      var  c  = true;
+	  //弹窗  多用于看简单数据
+      //alert("a="+a);
+	  //控制台 多用于看对象
+	  console.log("a="+a);
+	  // ==   比较值是否一样
+	  // ===  值和类型都要一样
+	 /*
+	  * if(1==="1"){
+	    alert("OK");
+	  }else{
+	  	alert("NO");
+	 } */
+	  
+	  // js+号 还是字符串拼接  *可以让数值型的字符串做四则运输。
+	  // 常用于  "234"*1 这种用来把数值型的字符串转化为数值。
+      // alert("1"+"1");  11
+	  // alert("1"+1);   11 
+      //alert("123"*1);
+	  
+	  // 1~100和；
+	  // 1~ 100奇数和
+
+      var sum = 0;
+      for (var i=1;i<=100;i++) {
+           sum=sum+i;
+          //sum+=i;  +=  -= /=  *=
+      }
+	
+	  sum=0;
+	  for (var i=1;i<=100;i++) {
+           if(i%2!=0){
+           	  sum=sum+i;
+           }
+      }
+	 // alert(sum);
+   	
+	 //方法
+	 //1，没返回值
+	 function getSum(n){
+	  var sum = 0;
+      for (var i=1;i<=n;i++) {
+           sum=sum+i;
+      }
+      alert(sum);
+	}
+     // getSum(100);
+	  /* 
+	   * 
+	   * arguments是一个伪数组：使用起来和数组一样，但是不是数组。
+	   function getSum02(){
+	   	 alert(arguments[0]+","+arguments[1]);
+	  }
+	     getSum02("A");
+	 */
+	
+	 //2，有返回值
+	 function getSum03(n){
+	  var sum = 0;
+      for (var i=1;i<=n;i++) {
+           sum=sum+i;
+     }
+       return sum;
+	}
+     var  result= getSum03(100);//有返回值才可以接收
+	 //var  result=getSum(100); //无返回值结果是undefined
+	 alert("result="+result);
+	
+	 // plus(2,3); //报错 plus is not a function
+	 var plus = function (x,y){
+		alert("x+y="+(x+y));
+	 }
+	 // plus(2,3);  //因为，plus是一个变量，定义之后才可以使用。
+	 // js里面方法可以当做参数传递。因为，方法可以赋值给一个变量。
+	 var minus= function(x,y){
+	 	 return x-y;
+	 }
+	
+	 //方法的调用必须要加();
+	 plus(function(){return  10;},10);//这个只是传了一个方法进去
+	 
+	 //方法的自运行
+	 //(方法)();
+	 (function(){alert(123);})();
+	
+	 //数组  索引从0  //js数组什么都能放
+ 	 var  arr=["A","b","3",4,5];
+ 	 arr[1]="a";  //修改
+	 alert(arr[1]);
+	 arr[5]="QWER";//增加
+	 alert(arr.length); //js的长度是可以变化的
+	 
+	 //习惯 先写好模板再写内容。
+	 //面向对象
+	
+	//定义
+	function Student(name,age){
+	 	//this表示学生自己。
+	 	this.name=name;
+	 	this.age=age;
+	 	this.work= function(){alert("我爱学习");};
+	 }
+	//产生一个实例
+    var stu01= new Student("kingswim",18);
+    alert("age="+stu01.age);
+	//调用对象里面的方法。
+	stu01.work();
+    stu01.age=28; 
+	alert("age="+stu01.age);
+	
+	//1，js里面的属性，取的时候，有就拿到，没有就新增。
+	//坏处：容易写错——本来是取属性结果变成了新增。
+	stu01.sex="男";
+	alert("sex="+stu01.sex);
+   
+   
+    //  {属性名:值,属性名:值,属性名:值}  
+    var  person01={name:"kingswim",age:38,work:function(){alert("教书~");}}; 
+         person01.work();
+    
+    alert("name="+person01["name"]);
+         
+ 
+    //面向对象的应用
+     function add01(x,y){
+     	return x+y;
+     }
+	
+	 function add02(num){
+     	return num.x+num.y;
+     }
+	
+	 add01(10,10);
+	 add02({x:10,y:10});	
+	
+	</script>
+</html>

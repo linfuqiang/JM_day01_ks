@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p id="record"></p>
+		<input type="text" id="input01" />
+		<div class="number">
+			<input type="button" id="btn01" value="1" />
+			<input type="button" id="btn02" value="2" />
+			<input type="button" id="btn03" value="3" />
+			<input type="button" id="btn04" value="4" />
+			<input type="button" id="btn05" value="5" />
+			<input type="button" id="btn06" value="6" />
+			<input type="button" id="btn07" value="7" />
+			<input type="button" id="btn08" value="8" />
+			<input type="button" id="btn09" value="9" />
+			<input type="button" id="btn00" value="0" />
+		</div>
+
+		<input type="button" id="btnPlus" value="+" />
+		<input type="button" id="btnResult" value="=" />
+		<input type="button" id="btnDelete" value="<--" />
+	</body>
+	<script type="text/javascript">
+		var input01 = document.querySelector("#input01");
+		var numbers = document.querySelectorAll(".number>input");
+		var btnPlus = document.querySelector("#btnPlus");
+		var btnResult = document.querySelector("#btnResult");
+		var record = document.querySelector("#record");
+		var btnDelete = document.querySelector("#btnDelete");
+		var signal = "+";
+		/*
+		 btn01.onclick=function(){
+			  input01.value =input01.value+1;
+		  };
+		 btn02.onclick=function(){
+			  input01.value =input01.value+2;
+		  };  
+		  btn03.onclick=function(){
+			  input01.value =input01.value+3;
+		  };
+		  */
+		                          5
+		for (var i = 0; i < numbers.length; i++) {
+			
+			numbers[i].onclick = function(e) {
+		     //input01.value = input01.value + numbers[i].value;不要这样写
+             //	input01.value = input01.value + this.value;
+             //e.target 你点击的对象
+             input01.value = input01.value + e.target.value;
+		     console.log(e);
+			};
+			
+		}
+		
+		
+		
+		//1112  //111
+		btnDelete.onclick = function() {
+			//substring(a,b),截取[,)
+			input01.value = input01.value.substring(0, input01.value.length - 1);
+		};
+		btnPlus.onclick = function() {
+			signal = "+";
+			//提取结果显示
+			record.innerText = input01.value + "  " + signal;
+			//清空数据
+			input01.value = "";
+		};
+		btnResult.onclick = function() {
+			//11111 + 1111111
+			record.innerText = record.innerText + " " + input01.value;
+			//用+切割 ,结果是数组
+			var xy = record.innerText.split("+"); //["1111","11111"]
+			var x = xy[0] * 1;
+			var y = xy[1] * 1;
+			input01.value = x + y;
+		};
+	</script>
+
+</html>

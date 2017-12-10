@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div01{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+			}
+			.div02{
+				width: 200px;
+				height: 200px;
+				background-color: green;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		  <div class="div01">
+		  </div>
+		  
+		  <div class="div02">
+		  	
+		  </div>
+	</body>
+	 <script type="text/javascript">
+	 
+	 	 var  div01 = document.querySelector(".div01");
+	 	 var div02 = document.querySelector(".div02");
+	 	//设置监听器
+	 	div01.onclick =function(e){
+	 	  	
+	 	     div01.style.backgroundColor="red";
+	 	     //注意取样式不能这样。
+             //var div02Dis = div02.style.display;	//只能取到内联样式
+	 	     var div02Dis = getComputedStyle(div02).display;
+	 	        
+	 	        if(div02Dis=="none"){
+	 	        	div02.style.display="block";
+	 	        }else{
+	 	        	div02.style.display="none";
+	 	        }
+	 	        
+	 	       // console.log(e);
+	 	  };
+	 	//点击div01  div02消失
+	 	
+	 	 
+	 	
+	 	  
+	 </script>
+	  
+	  
+</html>

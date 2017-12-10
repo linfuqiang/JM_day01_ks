@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div01 {
+				width: 200px;
+				height: 200px;
+				margin: 100px auto;
+				border-radius: 100px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div01">
+			<div style="width: 20px; height: 20px; background: red; margin: 0 auto;">
+			</div>
+		</div>
+
+		<input type="button" name="btn" id="btn" value="启动" />
+
+	</body>
+	<script type="text/javascript">
+		var div01 = document.querySelector(".div01");
+		var i = 0;
+
+		function traslateX() {
+			/*if (i == 500) {
+				clearInterval(timer);
+				div01.style.transform = "translateX(0px)";
+			} else {
+				div01.style.transform = "translateX(" + (i=i+5) + "px)";
+			}*/
+			div01.style.transform = "rotate(" + (i = i + 5) + "deg)";
+		}
+		var timer = null;
+		var isRun = false;
+		var btn = document.querySelector("#btn");
+		
+		btn.onclick = function() {
+			
+			if (!isRun) {
+				timer = setInterval(traslateX, 20);
+				isRun = true;
+			} else {
+				clearInterval(timer);
+				isRun = false;
+				//会超过360
+				var deg= i%360;
+				  alert(deg);
+			}
+			
+		};
+	</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				margin: 100px auto;
+				width: 640px;
+				height: 320px;
+				position: relative;
+				overflow: hidden;
+				border: 2px solid blue;
+			}
+			.container >li {
+				position: absolute;
+				top: 0px;
+				left: 640px;
+				list-style: none;
+			}
+			.container .current {
+				transform: translateX(-640px);
+			}
+			.container .result {
+				transform: translateX(0px);
+			}
+			.container .centerRunLeft {
+				transform: translateX(-1280px);
+			}
+			.container .rightRunLeft {
+				transform: translateX(-640px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="container">
+			<li class="current"><img src="imgfq/img1.jpg"  /></li>
+			<li><img src="imgfq/img2.jpg" /></li>
+			<li><img src="imgfq/img3.jpg" /></li>
+			<li><img src="imgfq/img4.jpg" /></li>
+			<li><img src="imgfq/img5.jpg" /></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+	    //所有的li
+		var imgs = document.querySelectorAll(".container>li");
+		//索引
+		var index = 0;
+		//每个平移动画时间
+		var time = 1;
+		
+		//开始轮播
+		setInterval(function() {
+			//中间到左边的动画
+			centerRunLeftAnim(imgs[index++]);
+			if (index == imgs.length - 1) {
+				index = 0;
+			}
+			//右边到中间的动画
+			rightRunCenterAnim(imgs[index]);
+			// 0  1  2  3  4
+			// 1  2  3  4  0 
+		}, 2000);
+
+		function centerRunLeftAnim(ele) {
+			ele.style.zIndex= 1;
+			ele.style.transition="all "+time+"s";;
+			ele.className="centerRunLeft";
+		    setTimeout(function(){
+		    	ele.style.zIndex= 0;
+		    	ele.style.transition="none";
+		    	ele.className="result";
+		    },time*1000);
+		}
+		function rightRunCenterAnim(ele) {
+			ele.style.zIndex= 1;
+			ele.style.transition="all "+time+"s";
+			ele.className="rightRunLeft";
+			setTimeout(function(){
+				ele.style.zIndex= 1;
+				ele.style.transition="none";
+		    	ele.className="current";
+		    },time*1000);
+		}
+		 
+	</script>
+
+</html>

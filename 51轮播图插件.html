@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 100px auto;
+				width: 640px;
+				height: 320px;
+				border: 2px solid blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+
+		</div>
+
+		<div id="box">
+
+		</div>
+
+	</body>
+	<script src="js/loop.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var imgs = ["imgfq/img1.jpg", "imgfq/img2.jpg", "imgfq/img3.jpg", "imgfq/img4.jpg", "imgfq/img5.jpg"];
+		creatLoopWall({
+			loopContainer: ".box",
+			imgsPath: imgs,
+			animTime: 50,
+			gapTime: 1500
+		});
+		
+		/*creatLoopWall({
+			loopContainer: "#box",
+			imgsPath: imgs,
+			animTime: 50,
+			gapTime: 1500
+		});*/
+		 
+		 
+		/*document.onvisibilitychange=function(){
+			 
+		 	document.title = document.hidden ? "用户离开了1" : "用户回来了1";
+		};
+		 
+		document.addEventListener("visibilitychange", function() {
+			document.title = document.hidden ? "用户离开了" : "用户回来了";
+		});*/
+		
+		
+		
+		/*
+	    document.querySelector("#box").onclick=function(){
+			alert("#box2");
+		};
+		
+		document.querySelector("#box").onclick=function(){
+			alert("#box1");
+		};
+		
+		document.querySelector(".box").addEventListener("click", function() {
+			alert(".box1");
+		});
+		document.querySelector(".box").addEventListener("click", function() {
+			alert(".box2");
+		});*/
+		
+		
+		
+		//图片加载时异步的。需要监听加载完成才可以获取宽度。
+		/*var img =document.querySelector("img");
+    	   img.onload=function(){
+//  	   	 alert(getComputedStyle(img).width);
+//           alert(img.offsetWidth);
+            
+    	   };
+    	   */
+	</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				margin: 100px auto;
+				width: 640px;
+				height: 320px;
+				position: relative;
+				overflow: hidden;
+				/*border: 1px solid blue;*/
+			}
+			
+			.container .imgs {
+				position: absolute;
+				width: 3840px;
+				height: 320px;
+				left: 0px; 
+				top: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="imgs">
+				<img src="imgfq/img1.jpg" /><img src="imgfq/img2.jpg" /><img src="imgfq/img3.jpg" /><img src="imgfq/img4.jpg" /><img src="imgfq/img5.jpg" /><img src="imgfq/img1.jpg" />
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var imgs = document.querySelector(".container .imgs");
+		var imgsCount=document.querySelectorAll(".container .imgs>img").length;
+        var distance = 0;
+        var leftMaxDistance = parseInt(getComputedStyle(imgs).width) / imgsCount * (imgsCount - 1);
+
+        setInterval(function() {
+        	
+			if (distance <= -leftMaxDistance) {
+				distance = 0;
+			}
+			
+			imgs.style.left = (distance = distance - 10) +"px";
+		
+		}, 50);
+	</script>
+
+</html>

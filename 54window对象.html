@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<img src="img/1510829213347.jpg" />
+		<input type="button" id="btn" value="按钮" data-index="1" />
+	</body>
+	<script type="text/javascript">
+		window.history.back();
+		var btn = document.querySelector("#btn");
+		btn.addEventListener("click", function() {
+			//1，跳转
+			//window.location.href="http://www.jd.com";
+			//window.location="http://www.jd.com";
+			//window.location.replace("http://www.jd.com");
+			//2，刷新
+			//window.location.reload();
+			//3,返回上一页
+			//window.history.back();
+			//4,去下一页
+			//window.history.forward();
+		});
+		
+		
+		alert(btn.dataset.index);
+		alert(btn.getAttribute("data-index"));
+		//		data-自定义属性
+		//		localStorage
+		//		sessionStorage
+		localStorage.setItem("A", "AAA");
+		alert(localStorage.getItem("A"));
+		var time = new Date();
+		time.setFullYear(2018);
+		document.cookie = "age=18";
+		document.cookie = "name=kingswim ;" + "expires=" + time.toGMTString();
+		console.log(document.cookie);
+	</script>
+
+</html>

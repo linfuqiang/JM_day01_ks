@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 100px auto;
+				width: 640px;
+				height: 320px;
+				border: 2px solid blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+
+		</div>
+	</body>
+	<script src="js/loopWall.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var imgs = ["imgfq/img1.jpg", "imgfq/img2.jpg", "imgfq/img3.jpg", "imgfq/img4.jpg", "imgfq/img5.jpg"];
+		/*var loopWall = creatLoopWall({
+			loopContainer: ".box",
+			imgsPath: imgs,
+			imgWidth: 640,
+			imgHeight: 320,
+			animTime: 50,
+			gapTime: 2000
+		});
+		
+ 	   loopWall.start();*/
+		var loopWall = new LoopWall({
+			loopContainer: ".box",
+			imgsPath: imgs,
+			imgWidth: 640,
+			imgHeight: 320,
+			animTime: 50,
+			gapTime: 2000
+		});
+		
+		//loopWall.start();
+		
+		 
+	</script>
+
+</html>

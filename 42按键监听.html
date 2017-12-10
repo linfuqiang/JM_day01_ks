@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,html{
+				height: 200%;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	       /**
+	        * 
+	       eventdocument.onscroll=function(event){
+	       console.log(document.body.scrollTop);
+	       onsole.log(event);
+	       };*/
+	
+		   //按下以及按住不放都会调用
+		   document.onkeydown=function(event){
+		   	  // event 事件对象
+		   	  //获得按键对应的数字
+		   	  var  code= event.keyCode;
+		   	  console.log("down="+code);
+		   	  console.log(event);
+		   	  //组合按键
+		   	  if(event.altKey && code==38){
+		   	  	alert("组合~~");
+		   	  }
+		   }
+		   //释放
+		   document.onkeyup=function(){
+		   	 console.log("up");
+		   }
+		   //功能键，长按不起效果。
+		   document.onkeypress=function(){
+		   	 console.log("press");
+		   }
+		   
+	</script>
+</html>

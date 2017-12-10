@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		  <style type="text/css">
+		  	 ul{
+		  	 	margin: 100px auto;
+		  	 	width: 640px;
+		  	 	height: 320px;
+		  	 }
+		  	 ul>li{
+		  	 	list-style: none;
+		  	 }
+		  </style>
+		  
+	</head>
+	<body>
+		    <ul>
+		    	<li><img src="imgfq/img1.jpg"  /></li>
+		    </ul>
+	</body>
+	        <script type="text/javascript">
+             
+             var  img= document.querySelector("ul>li>img");
+             var imgs=["imgfq/img1.jpg","imgfq/img2.jpg","imgfq/img3.jpg","imgfq/img4.jpg","imgfq/img5.jpg"];
+             
+             
+             //当前的索引
+             var  index = 1;
+             setInterval(function(){
+             	if(index==6){
+             	    index=1;
+             	}
+              //img.src="imgfq/img"+(index++)+".jpg";
+              //数组索引0开始
+              img.src=imgs[(index++)-1];
+             	
+             },1000);
+
+	        </script>   
+</html>

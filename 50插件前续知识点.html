@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<div class="container">
+
+		</div>
+		<input type="button" id="btnDelete" value="删除" />
+
+		<!--ul 600x300  li 600X300  blue-->
+		<!--<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>-->
+
+		<div class="containerU">
+
+		</div>
+
+	</body>
+	<script src="js/loop.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//1，代码生成标签
+		var div = document.createElement("div");
+		div.innerText = "我是生成的~~~";
+		var container = document.querySelector(".container");
+		//增加子元素
+		container.appendChild(div);
+		var btnDelete = document.querySelector("#btnDelete");
+		btnDelete.onclick = function() {
+			//删除
+			container.removeChild(div);
+		};
+		//=============================================
+		var containerU = document.querySelector(".containerU");
+		var ul = document.createElement("ul");
+		ul.style.width = "600px";
+		ul.style.height = "300px";
+		for (var i = 0; i < 5; i++) {
+			var li = document.createElement("li");
+			li.style.width = "600px";
+			li.style.height = "300px";
+			li.style.backgroundColor = "blue";
+			ul.appendChild(li);
+		}
+		containerU.appendChild(ul);
+		
+		
+	</script>
+
+</html>

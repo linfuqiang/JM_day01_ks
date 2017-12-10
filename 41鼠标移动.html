@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div01{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		 <div class="div01">
+		  </div>
+	</body>
+	<script type="text/javascript">
+	  
+	   var div01= document.querySelector(".div01");
+	   
+	   //鼠标进入变红，离开变蓝，在上面不走变黄
+		  //进入
+		  div01.onmouseenter =function(){
+		  	  div01.style.backgroundColor="red";
+		  	  console.log("enter");
+		  };
+		  //离开
+		  div01.onmouseleave =function(){
+		  	  div01.style.backgroundColor="blue";
+		  	  console.log("leave");
+		  };
+		  //在上面移动的时候才执行，会多次执行
+		  div01.onmousemove=function(){
+		  	 div01.style.backgroundColor="yellow";
+		  	 console.log("move");
+		  };
+		  
+		  div01.onmouseout=function(){
+		  	console.log("out");
+		  };
+		  
+		  div01.onmouseover=function(){
+		  	console.log("over");
+		  };
+		  
+		  div01.onmousedown=function(){
+		  	console.log("down");
+		  };
+		  
+		  div01.onmouseup=function(){
+		  	console.log("up");
+		  };
+		  
+		  div01.onmousewheel=function(){
+		  	console.log("wheel");
+		  };
+		 //顺序 over enter  move   out  leave
+		 // down 鼠标按下，up鼠标释放 ，wheel滚轮
+		 
+		 
+		 
+		
+	</script>
+	
+</html>
