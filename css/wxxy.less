@@ -1,0 +1,245 @@
+.w_h(@w:100%,@h:100%){
+    width :  @w ; 
+    height:  @h ;  
+ }
+.hro_center{
+    margin: 0 auto;
+}
+.float_left{
+    float: left;
+}
+.position_top_center{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.position_top_right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.position_center{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.text_center(@height){
+    text-align: center;
+    height: @height;
+    line-height: @height;
+}
+//单行省略号
+.text_oneLine{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+//多行省略号
+.text_manyLine(@lineCount){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @lineCount;
+    -webkit-box-orient: vertical;
+}
+
+
+//水平居中
+//9大点
+//float 
+//文本中
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body,
+html {
+  .w_h();
+}
+
+.header{
+    .w_h(@h:500px);
+    background-color: brown;
+}
+
+/*nav区域*/
+.header>div:nth-child(1){
+    width: 100%;
+    height:70px;
+    background-color: rgba(0,0,0,0.7);
+    position: relative;
+    z-index: 1;
+}
+.header>div>nav{
+    margin: 0 auto;
+    width:990px;
+    height:70px;
+}
+
+.header>div>nav>img{
+    float: left;
+}
+  
+.header>div>nav>div{
+    float: left;
+}
+
+.header .list{
+    width: 135px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+
+  .span_li_same{
+    font-size: 24px;
+    height: 25px;
+    width: 135px;
+    padding-bottom: 15px;
+    padding-left:7px ;
+   }
+
+.header .list>span{
+    display: block;
+    color: greenyellow;
+    background:url(../imgWxxy/angle.png) no-repeat 115px 16px;
+    border-left:1px solid black ;
+    .span_li_same;
+    
+}
+.header .list>ul>li{
+    list-style: none;
+    color: white;
+    .span_li_same;
+}
+
+
+.header .list>ul{
+    display: none;
+}
+
+.header .list:hover>ul{
+    display: block;
+}
+.header .list:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+.header .list>ul>li:hover{
+     color: greenyellow;
+     background-color: rgba(0,0,0,0.9);
+}
+
+
+.header>div>nav>div:nth-of-type(2){
+    float: right;
+    position: relative;
+    height: 70px;
+    width: 430px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.header>div>nav>div:nth-of-type(2)>input{
+    width:380px ;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    background-color: gainsboro;
+    padding-left: 10px;
+}
+
+.header>div>nav>div:nth-of-type(2)>span{
+    display: inline-block;
+    width:50px ;
+    height: 35px;
+    background: url(../imgWxxy/search.png) no-repeat center;
+    background-color: greenyellow;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+
+.header>div:nth-child(2){
+    width: 100%;
+    height: 35px;
+    background-color: greenyellow;
+    /*absolute：兄弟元素影响不到自己。*/
+    position: absolute;
+}
+
+.header>div:nth-child(2)>ul{
+    width: 990px;
+    height: 35px;
+    margin: 0 auto;
+}
+.header>div:nth-child(2)>ul>li{
+    float: left;
+    list-style: none;
+    padding: 0px 15px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-right: 1px solid grey;
+    color: black;
+    margin: 7.5px 0px;
+ /*background-color: blue;*/
+}
+.header>div:nth-child(2)>ul>li:nth-child(1)>a{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: url(../imgWxxy/home.png);
+    margin-right: 5px;
+}
+
+/* 
+   由于自己的宽度不知道。所以hover 背景变色不能使用其他标签。
+   但是，由于右边又有边框。边框控制了宽度。所以背景变色不能铺满。
+   最后使用，修改自身的高度，同时修改自己的背景做到。
+ */
+.header>div:nth-child(2)>ul>li:hover{
+    background-color: rgba(0,0,0,0.4);
+    /*防止，宽度变化*/
+    border-right:1px  solid rgba(0,0,0,0);
+    margin:0;
+    height: 35px;
+    line-height: 35px;
+}
+
+.container{
+    width: 100%;
+    height: 320px;
+    background-color: gainsboro;
+}
+
+.footer{
+  /*border: 26px solid blue;    
+    border-image: url(../imgWxxy/angle2.png) 26  round;*/
+  width: 100%;
+  height: 520px;
+  background: url(../imgWxxy/home6.jpg) no-repeat center 223px;
+  background-color: rgb(70,80,90);
+  /*background-size: 100% 520px;*/
+  position: relative;
+  
+}
+ 
+.footer>div{
+    width: 100%;
+    height: 110px;
+    background-color: rgb(50,60,70);
+    position: absolute;
+    bottom: 0;
+}
